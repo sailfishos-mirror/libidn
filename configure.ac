@@ -50,12 +50,11 @@ AM_PROG_AR
 LT_INIT([win32-dll])
 AM_MISSING_PROG(PERL, perl, $missing_dir)
 AM_MISSING_PROG(HELP2MAN, help2man, $missing_dir)
-AM_GNU_GETTEXT(external)
 AM_ICONV
 AM_PATH_LISPDIR
 
-AM_GNU_GETTEXT_VERSION([0.19.6])
-AM_GNU_GETTEXT_REQUIRE_VERSION([0.19.6])
+AM_GNU_GETTEXT([external])
+AM_GNU_GETTEXT_VERSION([0.19.3])
 
 if test "$am_cv_func_iconv" != "yes"; then
   AC_MSG_NOTICE([

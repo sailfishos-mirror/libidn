@@ -199,7 +199,6 @@ AC_CONFIG_FILES([
   examples/Makefile
   fuzz/Makefile
   gl/Makefile
-  gl/tests/Makefile
   java/Makefile
   java/pom.xml
   java/src/Makefile

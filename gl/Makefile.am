@@ -229,13 +229,13 @@ fcntl.h: fcntl.in.h $(top_builddir)/config.status $(CXXDEFS_H) $(ARG_NONNULL_H) 
 	      -e 's|@''PRAGMA_SYSTEM_HEADER''@|@PRAGMA_SYSTEM_HEADER@|g' \
 	      -e 's|@''PRAGMA_COLUMNS''@|@PRAGMA_COLUMNS@|g' \
 	      -e 's|@''NEXT_FCNTL_H''@|$(NEXT_FCNTL_H)|g' \
-	      -e 's/@''GNULIB_CREAT''@/$(GNULIB_CREAT)/g' \
-	      -e 's/@''GNULIB_FCNTL''@/$(GNULIB_FCNTL)/g' \
-	      -e 's/@''GNULIB_NONBLOCKING''@/$(GNULIB_NONBLOCKING)/g' \
-	      -e 's/@''GNULIB_OPEN''@/$(GNULIB_OPEN)/g' \
-	      -e 's/@''GNULIB_OPENAT''@/$(GNULIB_OPENAT)/g' \
-	      -e 's/@''GNULIB_MDA_CREAT''@/$(GNULIB_MDA_CREAT)/g' \
-	      -e 's/@''GNULIB_MDA_OPEN''@/$(GNULIB_MDA_OPEN)/g' \
+	      -e 's/@''GNULIB_CREAT''@/$(GL_GNULIB_CREAT)/g' \
+	      -e 's/@''GNULIB_FCNTL''@/$(GL_GNULIB_FCNTL)/g' \
+	      -e 's/@''GNULIB_NONBLOCKING''@/$(GL_GNULIB_NONBLOCKING)/g' \
+	      -e 's/@''GNULIB_OPEN''@/$(GL_GNULIB_OPEN)/g' \
+	      -e 's/@''GNULIB_OPENAT''@/$(GL_GNULIB_OPENAT)/g' \
+	      -e 's/@''GNULIB_MDA_CREAT''@/$(GL_GNULIB_MDA_CREAT)/g' \
+	      -e 's/@''GNULIB_MDA_OPEN''@/$(GL_GNULIB_MDA_OPEN)/g' \
 	      -e 's|@''HAVE_FCNTL''@|$(HAVE_FCNTL)|g' \
 	      -e 's|@''HAVE_OPENAT''@|$(HAVE_OPENAT)|g' \
 	      -e 's|@''REPLACE_CREAT''@|$(REPLACE_CREAT)|g' \
@@ -375,6 +375,12 @@ clean-GNUmakefile:
 EXTRA_DIST += $(top_srcdir)/build-aux/gnupload
 
 ## end   gnulib module gnupload
+
+## begin gnulib module idx
+
+libgnu_la_SOURCES += idx.h
+
+## end   gnulib module idx
 
 ## begin gnulib module intprops
 
@@ -643,7 +649,7 @@ stdint.h: stdint.in.h $(top_builddir)/config.status
 	      -e 's/@''BITSIZEOF_WINT_T''@/$(BITSIZEOF_WINT_T)/g' \
 	      -e 's/@''HAVE_SIGNED_WINT_T''@/$(HAVE_SIGNED_WINT_T)/g' \
 	      -e 's/@''WINT_T_SUFFIX''@/$(WINT_T_SUFFIX)/g' \
-	      -e 's/@''GNULIB_OVERRIDES_WINT_T''@/$(GNULIB_OVERRIDES_WINT_T)/g' \
+	      -e 's/@''GNULIBHEADERS_OVERRIDE_WINT_T''@/$(GNULIBHEADERS_OVERRIDE_WINT_T)/g' \
 	      < $(srcdir)/stdint.in.h; \
 	} > $@-t && \
 	mv $@-t $@
@@ -671,65 +677,65 @@ stdio.h: stdio.in.h $(top_builddir)/config.status $(CXXDEFS_H) $(ARG_NONNULL_H) 
 	      -e 's|@''PRAGMA_SYSTEM_HEADER''@|@PRAGMA_SYSTEM_HEADER@|g' \
 	      -e 's|@''PRAGMA_COLUMNS''@|@PRAGMA_COLUMNS@|g' \
 	      -e 's|@''NEXT_STDIO_H''@|$(NEXT_STDIO_H)|g' \
-	      -e 's/@''GNULIB_DPRINTF''@/$(GNULIB_DPRINTF)/g' \
-	      -e 's/@''GNULIB_FCLOSE''@/$(GNULIB_FCLOSE)/g' \
-	      -e 's/@''GNULIB_FDOPEN''@/$(GNULIB_FDOPEN)/g' \
-	      -e 's/@''GNULIB_FFLUSH''@/$(GNULIB_FFLUSH)/g' \
-	      -e 's/@''GNULIB_FGETC''@/$(GNULIB_FGETC)/g' \
-	      -e 's/@''GNULIB_FGETS''@/$(GNULIB_FGETS)/g' \
-	      -e 's/@''GNULIB_FOPEN''@/$(GNULIB_FOPEN)/g' \
-	      -e 's/@''GNULIB_FPRINTF''@/$(GNULIB_FPRINTF)/g' \
-	      -e 's/@''GNULIB_FPRINTF_POSIX''@/$(GNULIB_FPRINTF_POSIX)/g' \
-	      -e 's/@''GNULIB_FPURGE''@/$(GNULIB_FPURGE)/g' \
-	      -e 's/@''GNULIB_FPUTC''@/$(GNULIB_FPUTC)/g' \
-	      -e 's/@''GNULIB_FPUTS''@/$(GNULIB_FPUTS)/g' \
-	      -e 's/@''GNULIB_FREAD''@/$(GNULIB_FREAD)/g' \
-	      -e 's/@''GNULIB_FREOPEN''@/$(GNULIB_FREOPEN)/g' \
-	      -e 's/@''GNULIB_FSCANF''@/$(GNULIB_FSCANF)/g' \
-	      -e 's/@''GNULIB_FSEEK''@/$(GNULIB_FSEEK)/g' \
-	      -e 's/@''GNULIB_FSEEKO''@/$(GNULIB_FSEEKO)/g' \
-	      -e 's/@''GNULIB_FTELL''@/$(GNULIB_FTELL)/g' \
-	      -e 's/@''GNULIB_FTELLO''@/$(GNULIB_FTELLO)/g' \
-	      -e 's/@''GNULIB_FWRITE''@/$(GNULIB_FWRITE)/g' \
-	      -e 's/@''GNULIB_GETC''@/$(GNULIB_GETC)/g' \
-	      -e 's/@''GNULIB_GETCHAR''@/$(GNULIB_GETCHAR)/g' \
-	      -e 's/@''GNULIB_GETDELIM''@/$(GNULIB_GETDELIM)/g' \
-	      -e 's/@''GNULIB_GETLINE''@/$(GNULIB_GETLINE)/g' \
-	      -e 's/@''GNULIB_OBSTACK_PRINTF''@/$(GNULIB_OBSTACK_PRINTF)/g' \
-	      -e 's/@''GNULIB_OBSTACK_PRINTF_POSIX''@/$(GNULIB_OBSTACK_PRINTF_POSIX)/g' \
-	      -e 's/@''GNULIB_PCLOSE''@/$(GNULIB_PCLOSE)/g' \
-	      -e 's/@''GNULIB_PERROR''@/$(GNULIB_PERROR)/g' \
-	      -e 's/@''GNULIB_POPEN''@/$(GNULIB_POPEN)/g' \
-	      -e 's/@''GNULIB_PRINTF''@/$(GNULIB_PRINTF)/g' \
-	      -e 's/@''GNULIB_PRINTF_POSIX''@/$(GNULIB_PRINTF_POSIX)/g' \
-	      -e 's/@''GNULIB_PUTC''@/$(GNULIB_PUTC)/g' \
-	      -e 's/@''GNULIB_PUTCHAR''@/$(GNULIB_PUTCHAR)/g' \
-	      -e 's/@''GNULIB_PUTS''@/$(GNULIB_PUTS)/g' \
-	      -e 's/@''GNULIB_REMOVE''@/$(GNULIB_REMOVE)/g' \
-	      -e 's/@''GNULIB_RENAME''@/$(GNULIB_RENAME)/g' \
-	      -e 's/@''GNULIB_RENAMEAT''@/$(GNULIB_RENAMEAT)/g' \
-	      -e 's/@''GNULIB_SCANF''@/$(GNULIB_SCANF)/g' \
-	      -e 's/@''GNULIB_SNPRINTF''@/$(GNULIB_SNPRINTF)/g' \
-	      -e 's/@''GNULIB_SPRINTF_POSIX''@/$(GNULIB_SPRINTF_POSIX)/g' \
-	      -e 's/@''GNULIB_STDIO_H_NONBLOCKING''@/$(GNULIB_STDIO_H_NONBLOCKING)/g' \
-	      -e 's/@''GNULIB_STDIO_H_SIGPIPE''@/$(GNULIB_STDIO_H_SIGPIPE)/g' \
-	      -e 's/@''GNULIB_TMPFILE''@/$(GNULIB_TMPFILE)/g' \
-	      -e 's/@''GNULIB_VASPRINTF''@/$(GNULIB_VASPRINTF)/g' \
-	      -e 's/@''GNULIB_VDPRINTF''@/$(GNULIB_VDPRINTF)/g' \
-	      -e 's/@''GNULIB_VFPRINTF''@/$(GNULIB_VFPRINTF)/g' \
-	      -e 's/@''GNULIB_VFPRINTF_POSIX''@/$(GNULIB_VFPRINTF_POSIX)/g' \
-	      -e 's/@''GNULIB_VFSCANF''@/$(GNULIB_VFSCANF)/g' \
-	      -e 's/@''GNULIB_VSCANF''@/$(GNULIB_VSCANF)/g' \
-	      -e 's/@''GNULIB_VPRINTF''@/$(GNULIB_VPRINTF)/g' \
-	      -e 's/@''GNULIB_VPRINTF_POSIX''@/$(GNULIB_VPRINTF_POSIX)/g' \
-	      -e 's/@''GNULIB_VSNPRINTF''@/$(GNULIB_VSNPRINTF)/g' \
-	      -e 's/@''GNULIB_VSPRINTF_POSIX''@/$(GNULIB_VSPRINTF_POSIX)/g' \
-	      -e 's/@''GNULIB_MDA_FCLOSEALL''@/$(GNULIB_MDA_FCLOSEALL)/g' \
-	      -e 's/@''GNULIB_MDA_FDOPEN''@/$(GNULIB_MDA_FDOPEN)/g' \
-	      -e 's/@''GNULIB_MDA_FILENO''@/$(GNULIB_MDA_FILENO)/g' \
-	      -e 's/@''GNULIB_MDA_GETW''@/$(GNULIB_MDA_GETW)/g' \
-	      -e 's/@''GNULIB_MDA_PUTW''@/$(GNULIB_MDA_PUTW)/g' \
-	      -e 's/@''GNULIB_MDA_TEMPNAM''@/$(GNULIB_MDA_TEMPNAM)/g' \
+	      -e 's/@''GNULIB_DPRINTF''@/$(GL_GNULIB_DPRINTF)/g' \
+	      -e 's/@''GNULIB_FCLOSE''@/$(GL_GNULIB_FCLOSE)/g' \
+	      -e 's/@''GNULIB_FDOPEN''@/$(GL_GNULIB_FDOPEN)/g' \
+	      -e 's/@''GNULIB_FFLUSH''@/$(GL_GNULIB_FFLUSH)/g' \
+	      -e 's/@''GNULIB_FGETC''@/$(GL_GNULIB_FGETC)/g' \
+	      -e 's/@''GNULIB_FGETS''@/$(GL_GNULIB_FGETS)/g' \
+	      -e 's/@''GNULIB_FOPEN''@/$(GL_GNULIB_FOPEN)/g' \
+	      -e 's/@''GNULIB_FPRINTF''@/$(GL_GNULIB_FPRINTF)/g' \
+	      -e 's/@''GNULIB_FPRINTF_POSIX''@/$(GL_GNULIB_FPRINTF_POSIX)/g' \
+	      -e 's/@''GNULIB_FPURGE''@/$(GL_GNULIB_FPURGE)/g' \
+	      -e 's/@''GNULIB_FPUTC''@/$(GL_GNULIB_FPUTC)/g' \
+	      -e 's/@''GNULIB_FPUTS''@/$(GL_GNULIB_FPUTS)/g' \
+	      -e 's/@''GNULIB_FREAD''@/$(GL_GNULIB_FREAD)/g' \
+	      -e 's/@''GNULIB_FREOPEN''@/$(GL_GNULIB_FREOPEN)/g' \
+	      -e 's/@''GNULIB_FSCANF''@/$(GL_GNULIB_FSCANF)/g' \
+	      -e 's/@''GNULIB_FSEEK''@/$(GL_GNULIB_FSEEK)/g' \
+	      -e 's/@''GNULIB_FSEEKO''@/$(GL_GNULIB_FSEEKO)/g' \
+	      -e 's/@''GNULIB_FTELL''@/$(GL_GNULIB_FTELL)/g' \
+	      -e 's/@''GNULIB_FTELLO''@/$(GL_GNULIB_FTELLO)/g' \
+	      -e 's/@''GNULIB_FWRITE''@/$(GL_GNULIB_FWRITE)/g' \
+	      -e 's/@''GNULIB_GETC''@/$(GL_GNULIB_GETC)/g' \
+	      -e 's/@''GNULIB_GETCHAR''@/$(GL_GNULIB_GETCHAR)/g' \
+	      -e 's/@''GNULIB_GETDELIM''@/$(GL_GNULIB_GETDELIM)/g' \
+	      -e 's/@''GNULIB_GETLINE''@/$(GL_GNULIB_GETLINE)/g' \
+	      -e 's/@''GNULIB_OBSTACK_PRINTF''@/$(GL_GNULIB_OBSTACK_PRINTF)/g' \
+	      -e 's/@''GNULIB_OBSTACK_PRINTF_POSIX''@/$(GL_GNULIB_OBSTACK_PRINTF_POSIX)/g' \
+	      -e 's/@''GNULIB_PCLOSE''@/$(GL_GNULIB_PCLOSE)/g' \
+	      -e 's/@''GNULIB_PERROR''@/$(GL_GNULIB_PERROR)/g' \
+	      -e 's/@''GNULIB_POPEN''@/$(GL_GNULIB_POPEN)/g' \
+	      -e 's/@''GNULIB_PRINTF''@/$(GL_GNULIB_PRINTF)/g' \
+	      -e 's/@''GNULIB_PRINTF_POSIX''@/$(GL_GNULIB_PRINTF_POSIX)/g' \
+	      -e 's/@''GNULIB_PUTC''@/$(GL_GNULIB_PUTC)/g' \
+	      -e 's/@''GNULIB_PUTCHAR''@/$(GL_GNULIB_PUTCHAR)/g' \
+	      -e 's/@''GNULIB_PUTS''@/$(GL_GNULIB_PUTS)/g' \
+	      -e 's/@''GNULIB_REMOVE''@/$(GL_GNULIB_REMOVE)/g' \
+	      -e 's/@''GNULIB_RENAME''@/$(GL_GNULIB_RENAME)/g' \
+	      -e 's/@''GNULIB_RENAMEAT''@/$(GL_GNULIB_RENAMEAT)/g' \
+	      -e 's/@''GNULIB_SCANF''@/$(GL_GNULIB_SCANF)/g' \
+	      -e 's/@''GNULIB_SNPRINTF''@/$(GL_GNULIB_SNPRINTF)/g' \
+	      -e 's/@''GNULIB_SPRINTF_POSIX''@/$(GL_GNULIB_SPRINTF_POSIX)/g' \
+	      -e 's/@''GNULIB_STDIO_H_NONBLOCKING''@/$(GL_GNULIB_STDIO_H_NONBLOCKING)/g' \
+	      -e 's/@''GNULIB_STDIO_H_SIGPIPE''@/$(GL_GNULIB_STDIO_H_SIGPIPE)/g' \
+	      -e 's/@''GNULIB_TMPFILE''@/$(GL_GNULIB_TMPFILE)/g' \
+	      -e 's/@''GNULIB_VASPRINTF''@/$(GL_GNULIB_VASPRINTF)/g' \
+	      -e 's/@''GNULIB_VDPRINTF''@/$(GL_GNULIB_VDPRINTF)/g' \
+	      -e 's/@''GNULIB_VFPRINTF''@/$(GL_GNULIB_VFPRINTF)/g' \
+	      -e 's/@''GNULIB_VFPRINTF_POSIX''@/$(GL_GNULIB_VFPRINTF_POSIX)/g' \
+	      -e 's/@''GNULIB_VFSCANF''@/$(GL_GNULIB_VFSCANF)/g' \
+	      -e 's/@''GNULIB_VSCANF''@/$(GL_GNULIB_VSCANF)/g' \
+	      -e 's/@''GNULIB_VPRINTF''@/$(GL_GNULIB_VPRINTF)/g' \
+	      -e 's/@''GNULIB_VPRINTF_POSIX''@/$(GL_GNULIB_VPRINTF_POSIX)/g' \
+	      -e 's/@''GNULIB_VSNPRINTF''@/$(GL_GNULIB_VSNPRINTF)/g' \
+	      -e 's/@''GNULIB_VSPRINTF_POSIX''@/$(GL_GNULIB_VSPRINTF_POSIX)/g' \
+	      -e 's/@''GNULIB_MDA_FCLOSEALL''@/$(GL_GNULIB_MDA_FCLOSEALL)/g' \
+	      -e 's/@''GNULIB_MDA_FDOPEN''@/$(GL_GNULIB_MDA_FDOPEN)/g' \
+	      -e 's/@''GNULIB_MDA_FILENO''@/$(GL_GNULIB_MDA_FILENO)/g' \
+	      -e 's/@''GNULIB_MDA_GETW''@/$(GL_GNULIB_MDA_GETW)/g' \
+	      -e 's/@''GNULIB_MDA_PUTW''@/$(GL_GNULIB_MDA_PUTW)/g' \
+	      -e 's/@''GNULIB_MDA_TEMPNAM''@/$(GL_GNULIB_MDA_TEMPNAM)/g' \
 	      < $(srcdir)/stdio.in.h | \
 	  sed -e 's|@''HAVE_DECL_FCLOSEALL''@|$(HAVE_DECL_FCLOSEALL)|g' \
 	      -e 's|@''HAVE_DECL_FPURGE''@|$(HAVE_DECL_FPURGE)|g' \
@@ -824,49 +830,49 @@ string.h: string.in.h $(top_builddir)/config.status $(CXXDEFS_H) $(ARG_NONNULL_H
 	      -e 's|@''PRAGMA_SYSTEM_HEADER''@|@PRAGMA_SYSTEM_HEADER@|g' \
 	      -e 's|@''PRAGMA_COLUMNS''@|@PRAGMA_COLUMNS@|g' \
 	      -e 's|@''NEXT_STRING_H''@|$(NEXT_STRING_H)|g' \
-	      -e 's/@''GNULIB_EXPLICIT_BZERO''@/$(GNULIB_EXPLICIT_BZERO)/g' \
-	      -e 's/@''GNULIB_FFSL''@/$(GNULIB_FFSL)/g' \
-	      -e 's/@''GNULIB_FFSLL''@/$(GNULIB_FFSLL)/g' \
-	      -e 's/@''GNULIB_MBSLEN''@/$(GNULIB_MBSLEN)/g' \
-	      -e 's/@''GNULIB_MBSNLEN''@/$(GNULIB_MBSNLEN)/g' \
-	      -e 's/@''GNULIB_MBSCHR''@/$(GNULIB_MBSCHR)/g' \
-	      -e 's/@''GNULIB_MBSRCHR''@/$(GNULIB_MBSRCHR)/g' \
-	      -e 's/@''GNULIB_MBSSTR''@/$(GNULIB_MBSSTR)/g' \
-	      -e 's/@''GNULIB_MBSCASECMP''@/$(GNULIB_MBSCASECMP)/g' \
-	      -e 's/@''GNULIB_MBSNCASECMP''@/$(GNULIB_MBSNCASECMP)/g' \
-	      -e 's/@''GNULIB_MBSPCASECMP''@/$(GNULIB_MBSPCASECMP)/g' \
-	      -e 's/@''GNULIB_MBSCASESTR''@/$(GNULIB_MBSCASESTR)/g' \
-	      -e 's/@''GNULIB_MBSCSPN''@/$(GNULIB_MBSCSPN)/g' \
-	      -e 's/@''GNULIB_MBSPBRK''@/$(GNULIB_MBSPBRK)/g' \
-	      -e 's/@''GNULIB_MBSSPN''@/$(GNULIB_MBSSPN)/g' \
-	      -e 's/@''GNULIB_MBSSEP''@/$(GNULIB_MBSSEP)/g' \
-	      -e 's/@''GNULIB_MBSTOK_R''@/$(GNULIB_MBSTOK_R)/g' \
-	      -e 's/@''GNULIB_MEMCHR''@/$(GNULIB_MEMCHR)/g' \
-	      -e 's/@''GNULIB_MEMMEM''@/$(GNULIB_MEMMEM)/g' \
-	      -e 's/@''GNULIB_MEMPCPY''@/$(GNULIB_MEMPCPY)/g' \
-	      -e 's/@''GNULIB_MEMRCHR''@/$(GNULIB_MEMRCHR)/g' \
-	      -e 's/@''GNULIB_RAWMEMCHR''@/$(GNULIB_RAWMEMCHR)/g' \
-	      -e 's/@''GNULIB_STPCPY''@/$(GNULIB_STPCPY)/g' \
-	      -e 's/@''GNULIB_STPNCPY''@/$(GNULIB_STPNCPY)/g' \
-	      -e 's/@''GNULIB_STRCHRNUL''@/$(GNULIB_STRCHRNUL)/g' \
-	      -e 's/@''GNULIB_STRDUP''@/$(GNULIB_STRDUP)/g' \
-	      -e 's/@''GNULIB_STRNCAT''@/$(GNULIB_STRNCAT)/g' \
-	      -e 's/@''GNULIB_STRNDUP''@/$(GNULIB_STRNDUP)/g' \
-	      -e 's/@''GNULIB_STRNLEN''@/$(GNULIB_STRNLEN)/g' \
-	      -e 's/@''GNULIB_STRPBRK''@/$(GNULIB_STRPBRK)/g' \
-	      -e 's/@''GNULIB_STRSEP''@/$(GNULIB_STRSEP)/g' \
-	      -e 's/@''GNULIB_STRSTR''@/$(GNULIB_STRSTR)/g' \
-	      -e 's/@''GNULIB_STRCASESTR''@/$(GNULIB_STRCASESTR)/g' \
-	      -e 's/@''GNULIB_STRTOK_R''@/$(GNULIB_STRTOK_R)/g' \
-	      -e 's/@''GNULIB_STRERROR''@/$(GNULIB_STRERROR)/g' \
-	      -e 's/@''GNULIB_STRERROR_R''@/$(GNULIB_STRERROR_R)/g' \
-	      -e 's/@''GNULIB_STRERRORNAME_NP''@/$(GNULIB_STRERRORNAME_NP)/g' \
-	      -e 's/@''GNULIB_SIGABBREV_NP''@/$(GNULIB_SIGABBREV_NP)/g' \
-	      -e 's/@''GNULIB_SIGDESCR_NP''@/$(GNULIB_SIGDESCR_NP)/g' \
-	      -e 's/@''GNULIB_STRSIGNAL''@/$(GNULIB_STRSIGNAL)/g' \
-	      -e 's/@''GNULIB_STRVERSCMP''@/$(GNULIB_STRVERSCMP)/g' \
-	      -e 's/@''GNULIB_MDA_MEMCCPY''@/$(GNULIB_MDA_MEMCCPY)/g' \
-	      -e 's/@''GNULIB_MDA_STRDUP''@/$(GNULIB_MDA_STRDUP)/g' \
+	      -e 's/@''GNULIB_EXPLICIT_BZERO''@/$(GL_GNULIB_EXPLICIT_BZERO)/g' \
+	      -e 's/@''GNULIB_FFSL''@/$(GL_GNULIB_FFSL)/g' \
+	      -e 's/@''GNULIB_FFSLL''@/$(GL_GNULIB_FFSLL)/g' \
+	      -e 's/@''GNULIB_MBSLEN''@/$(GL_GNULIB_MBSLEN)/g' \
+	      -e 's/@''GNULIB_MBSNLEN''@/$(GL_GNULIB_MBSNLEN)/g' \
+	      -e 's/@''GNULIB_MBSCHR''@/$(GL_GNULIB_MBSCHR)/g' \
+	      -e 's/@''GNULIB_MBSRCHR''@/$(GL_GNULIB_MBSRCHR)/g' \
+	      -e 's/@''GNULIB_MBSSTR''@/$(GL_GNULIB_MBSSTR)/g' \
+	      -e 's/@''GNULIB_MBSCASECMP''@/$(GL_GNULIB_MBSCASECMP)/g' \
+	      -e 's/@''GNULIB_MBSNCASECMP''@/$(GL_GNULIB_MBSNCASECMP)/g' \
+	      -e 's/@''GNULIB_MBSPCASECMP''@/$(GL_GNULIB_MBSPCASECMP)/g' \
+	      -e 's/@''GNULIB_MBSCASESTR''@/$(GL_GNULIB_MBSCASESTR)/g' \
+	      -e 's/@''GNULIB_MBSCSPN''@/$(GL_GNULIB_MBSCSPN)/g' \
+	      -e 's/@''GNULIB_MBSPBRK''@/$(GL_GNULIB_MBSPBRK)/g' \
+	      -e 's/@''GNULIB_MBSSPN''@/$(GL_GNULIB_MBSSPN)/g' \
+	      -e 's/@''GNULIB_MBSSEP''@/$(GL_GNULIB_MBSSEP)/g' \
+	      -e 's/@''GNULIB_MBSTOK_R''@/$(GL_GNULIB_MBSTOK_R)/g' \
+	      -e 's/@''GNULIB_MEMCHR''@/$(GL_GNULIB_MEMCHR)/g' \
+	      -e 's/@''GNULIB_MEMMEM''@/$(GL_GNULIB_MEMMEM)/g' \
+	      -e 's/@''GNULIB_MEMPCPY''@/$(GL_GNULIB_MEMPCPY)/g' \
+	      -e 's/@''GNULIB_MEMRCHR''@/$(GL_GNULIB_MEMRCHR)/g' \
+	      -e 's/@''GNULIB_RAWMEMCHR''@/$(GL_GNULIB_RAWMEMCHR)/g' \
+	      -e 's/@''GNULIB_STPCPY''@/$(GL_GNULIB_STPCPY)/g' \
+	      -e 's/@''GNULIB_STPNCPY''@/$(GL_GNULIB_STPNCPY)/g' \
+	      -e 's/@''GNULIB_STRCHRNUL''@/$(GL_GNULIB_STRCHRNUL)/g' \
+	      -e 's/@''GNULIB_STRDUP''@/$(GL_GNULIB_STRDUP)/g' \
+	      -e 's/@''GNULIB_STRNCAT''@/$(GL_GNULIB_STRNCAT)/g' \
+	      -e 's/@''GNULIB_STRNDUP''@/$(GL_GNULIB_STRNDUP)/g' \
+	      -e 's/@''GNULIB_STRNLEN''@/$(GL_GNULIB_STRNLEN)/g' \
+	      -e 's/@''GNULIB_STRPBRK''@/$(GL_GNULIB_STRPBRK)/g' \
+	      -e 's/@''GNULIB_STRSEP''@/$(GL_GNULIB_STRSEP)/g' \
+	      -e 's/@''GNULIB_STRSTR''@/$(GL_GNULIB_STRSTR)/g' \
+	      -e 's/@''GNULIB_STRCASESTR''@/$(GL_GNULIB_STRCASESTR)/g' \
+	      -e 's/@''GNULIB_STRTOK_R''@/$(GL_GNULIB_STRTOK_R)/g' \
+	      -e 's/@''GNULIB_STRERROR''@/$(GL_GNULIB_STRERROR)/g' \
+	      -e 's/@''GNULIB_STRERROR_R''@/$(GL_GNULIB_STRERROR_R)/g' \
+	      -e 's/@''GNULIB_STRERRORNAME_NP''@/$(GL_GNULIB_STRERRORNAME_NP)/g' \
+	      -e 's/@''GNULIB_SIGABBREV_NP''@/$(GL_GNULIB_SIGABBREV_NP)/g' \
+	      -e 's/@''GNULIB_SIGDESCR_NP''@/$(GL_GNULIB_SIGDESCR_NP)/g' \
+	      -e 's/@''GNULIB_STRSIGNAL''@/$(GL_GNULIB_STRSIGNAL)/g' \
+	      -e 's/@''GNULIB_STRVERSCMP''@/$(GL_GNULIB_STRVERSCMP)/g' \
+	      -e 's/@''GNULIB_MDA_MEMCCPY''@/$(GL_GNULIB_MDA_MEMCCPY)/g' \
+	      -e 's/@''GNULIB_MDA_STRDUP''@/$(GL_GNULIB_MDA_STRDUP)/g' \
 	      < $(srcdir)/string.in.h | \
 	  sed -e 's|@''HAVE_EXPLICIT_BZERO''@|$(HAVE_EXPLICIT_BZERO)|g' \
 	      -e 's|@''HAVE_FFSL''@|$(HAVE_FFSL)|g' \
@@ -938,25 +944,25 @@ sys/stat.h: sys_stat.in.h $(top_builddir)/config.status $(CXXDEFS_H) $(ARG_NONNU
 	      -e 's|@''NEXT_SYS_STAT_H''@|$(NEXT_SYS_STAT_H)|g' \
 	      -e 's|@''WINDOWS_64_BIT_ST_SIZE''@|$(WINDOWS_64_BIT_ST_SIZE)|g' \
 	      -e 's|@''WINDOWS_STAT_TIMESPEC''@|$(WINDOWS_STAT_TIMESPEC)|g' \
-	      -e 's/@''GNULIB_FCHMODAT''@/$(GNULIB_FCHMODAT)/g' \
-	      -e 's/@''GNULIB_FSTAT''@/$(GNULIB_FSTAT)/g' \
-	      -e 's/@''GNULIB_FSTATAT''@/$(GNULIB_FSTATAT)/g' \
-	      -e 's/@''GNULIB_FUTIMENS''@/$(GNULIB_FUTIMENS)/g' \
-	      -e 's/@''GNULIB_GETUMASK''@/$(GNULIB_GETUMASK)/g' \
-	      -e 's/@''GNULIB_LCHMOD''@/$(GNULIB_LCHMOD)/g' \
-	      -e 's/@''GNULIB_LSTAT''@/$(GNULIB_LSTAT)/g' \
-	      -e 's/@''GNULIB_MKDIR''@/$(GNULIB_MKDIR)/g' \
-	      -e 's/@''GNULIB_MKDIRAT''@/$(GNULIB_MKDIRAT)/g' \
-	      -e 's/@''GNULIB_MKFIFO''@/$(GNULIB_MKFIFO)/g' \
-	      -e 's/@''GNULIB_MKFIFOAT''@/$(GNULIB_MKFIFOAT)/g' \
-	      -e 's/@''GNULIB_MKNOD''@/$(GNULIB_MKNOD)/g' \
-	      -e 's/@''GNULIB_MKNODAT''@/$(GNULIB_MKNODAT)/g' \
-	      -e 's/@''GNULIB_STAT''@/$(GNULIB_STAT)/g' \
-	      -e 's/@''GNULIB_UTIMENSAT''@/$(GNULIB_UTIMENSAT)/g' \
-	      -e 's/@''GNULIB_OVERRIDES_STRUCT_STAT''@/$(GNULIB_OVERRIDES_STRUCT_STAT)/g' \
-	      -e 's/@''GNULIB_MDA_CHMOD''@/$(GNULIB_MDA_CHMOD)/g' \
-	      -e 's/@''GNULIB_MDA_MKDIR''@/$(GNULIB_MDA_MKDIR)/g' \
-	      -e 's/@''GNULIB_MDA_UMASK''@/$(GNULIB_MDA_UMASK)/g' \
+	      -e 's/@''GNULIB_FCHMODAT''@/$(GL_GNULIB_FCHMODAT)/g' \
+	      -e 's/@''GNULIB_FSTAT''@/$(GL_GNULIB_FSTAT)/g' \
+	      -e 's/@''GNULIB_FSTATAT''@/$(GL_GNULIB_FSTATAT)/g' \
+	      -e 's/@''GNULIB_FUTIMENS''@/$(GL_GNULIB_FUTIMENS)/g' \
+	      -e 's/@''GNULIB_GETUMASK''@/$(GL_GNULIB_GETUMASK)/g' \
+	      -e 's/@''GNULIB_LCHMOD''@/$(GL_GNULIB_LCHMOD)/g' \
+	      -e 's/@''GNULIB_LSTAT''@/$(GL_GNULIB_LSTAT)/g' \
+	      -e 's/@''GNULIB_MKDIR''@/$(GL_GNULIB_MKDIR)/g' \
+	      -e 's/@''GNULIB_MKDIRAT''@/$(GL_GNULIB_MKDIRAT)/g' \
+	      -e 's/@''GNULIB_MKFIFO''@/$(GL_GNULIB_MKFIFO)/g' \
+	      -e 's/@''GNULIB_MKFIFOAT''@/$(GL_GNULIB_MKFIFOAT)/g' \
+	      -e 's/@''GNULIB_MKNOD''@/$(GL_GNULIB_MKNOD)/g' \
+	      -e 's/@''GNULIB_MKNODAT''@/$(GL_GNULIB_MKNODAT)/g' \
+	      -e 's/@''GNULIB_STAT''@/$(GL_GNULIB_STAT)/g' \
+	      -e 's/@''GNULIB_UTIMENSAT''@/$(GL_GNULIB_UTIMENSAT)/g' \
+	      -e 's/@''GNULIB_OVERRIDES_STRUCT_STAT''@/$(GL_GNULIB_OVERRIDES_STRUCT_STAT)/g' \
+	      -e 's/@''GNULIB_MDA_CHMOD''@/$(GL_GNULIB_MDA_CHMOD)/g' \
+	      -e 's/@''GNULIB_MDA_MKDIR''@/$(GL_GNULIB_MDA_MKDIR)/g' \
+	      -e 's/@''GNULIB_MDA_UMASK''@/$(GL_GNULIB_MDA_UMASK)/g' \
 	      -e 's|@''HAVE_FCHMODAT''@|$(HAVE_FCHMODAT)|g' \
 	      -e 's|@''HAVE_FSTATAT''@|$(HAVE_FSTATAT)|g' \
 	      -e 's|@''HAVE_FUTIMENS''@|$(HAVE_FUTIMENS)|g' \
@@ -1034,18 +1040,18 @@ time.h: time.in.h $(top_builddir)/config.status $(CXXDEFS_H) $(ARG_NONNULL_H) $(
 	      -e 's|@''PRAGMA_SYSTEM_HEADER''@|@PRAGMA_SYSTEM_HEADER@|g' \
 	      -e 's|@''PRAGMA_COLUMNS''@|@PRAGMA_COLUMNS@|g' \
 	      -e 's|@''NEXT_TIME_H''@|$(NEXT_TIME_H)|g' \
-	      -e 's/@''GNULIB_CTIME''@/$(GNULIB_CTIME)/g' \
-	      -e 's/@''GNULIB_LOCALTIME''@/$(GNULIB_LOCALTIME)/g' \
-	      -e 's/@''GNULIB_MKTIME''@/$(GNULIB_MKTIME)/g' \
-	      -e 's/@''GNULIB_NANOSLEEP''@/$(GNULIB_NANOSLEEP)/g' \
-	      -e 's/@''GNULIB_STRFTIME''@/$(GNULIB_STRFTIME)/g' \
-	      -e 's/@''GNULIB_STRPTIME''@/$(GNULIB_STRPTIME)/g' \
-	      -e 's/@''GNULIB_TIMEGM''@/$(GNULIB_TIMEGM)/g' \
-	      -e 's/@''GNULIB_TIMESPEC_GET''@/$(GNULIB_TIMESPEC_GET)/g' \
-	      -e 's/@''GNULIB_TIME_R''@/$(GNULIB_TIME_R)/g' \
-	      -e 's/@''GNULIB_TIME_RZ''@/$(GNULIB_TIME_RZ)/g' \
-	      -e 's/@''GNULIB_TZSET''@/$(GNULIB_TZSET)/g' \
-	      -e 's/@''GNULIB_MDA_TZSET''@/$(GNULIB_MDA_TZSET)/g' \
+	      -e 's/@''GNULIB_CTIME''@/$(GL_GNULIB_CTIME)/g' \
+	      -e 's/@''GNULIB_LOCALTIME''@/$(GL_GNULIB_LOCALTIME)/g' \
+	      -e 's/@''GNULIB_MKTIME''@/$(GL_GNULIB_MKTIME)/g' \
+	      -e 's/@''GNULIB_NANOSLEEP''@/$(GL_GNULIB_NANOSLEEP)/g' \
+	      -e 's/@''GNULIB_STRFTIME''@/$(GL_GNULIB_STRFTIME)/g' \
+	      -e 's/@''GNULIB_STRPTIME''@/$(GL_GNULIB_STRPTIME)/g' \
+	      -e 's/@''GNULIB_TIMEGM''@/$(GL_GNULIB_TIMEGM)/g' \
+	      -e 's/@''GNULIB_TIMESPEC_GET''@/$(GL_GNULIB_TIMESPEC_GET)/g' \
+	      -e 's/@''GNULIB_TIME_R''@/$(GL_GNULIB_TIME_R)/g' \
+	      -e 's/@''GNULIB_TIME_RZ''@/$(GL_GNULIB_TIME_RZ)/g' \
+	      -e 's/@''GNULIB_TZSET''@/$(GL_GNULIB_TZSET)/g' \
+	      -e 's/@''GNULIB_MDA_TZSET''@/$(GL_GNULIB_MDA_TZSET)/g' \
 	      -e 's|@''HAVE_DECL_LOCALTIME_R''@|$(HAVE_DECL_LOCALTIME_R)|g' \
 	      -e 's|@''HAVE_NANOSLEEP''@|$(HAVE_NANOSLEEP)|g' \
 	      -e 's|@''HAVE_STRPTIME''@|$(HAVE_STRPTIME)|g' \
@@ -1095,89 +1101,89 @@ unistd.h: unistd.in.h $(top_builddir)/config.status $(CXXDEFS_H) $(ARG_NONNULL_H
 	      -e 's|@''PRAGMA_COLUMNS''@|@PRAGMA_COLUMNS@|g' \
 	      -e 's|@''NEXT_UNISTD_H''@|$(NEXT_UNISTD_H)|g' \
 	      -e 's|@''WINDOWS_64_BIT_OFF_T''@|$(WINDOWS_64_BIT_OFF_T)|g' \
-	      -e 's/@''GNULIB_ACCESS''@/$(GNULIB_ACCESS)/g' \
-	      -e 's/@''GNULIB_CHDIR''@/$(GNULIB_CHDIR)/g' \
-	      -e 's/@''GNULIB_CHOWN''@/$(GNULIB_CHOWN)/g' \
-	      -e 's/@''GNULIB_CLOSE''@/$(GNULIB_CLOSE)/g' \
-	      -e 's/@''GNULIB_COPY_FILE_RANGE''@/$(GNULIB_COPY_FILE_RANGE)/g' \
-	      -e 's/@''GNULIB_DUP''@/$(GNULIB_DUP)/g' \
-	      -e 's/@''GNULIB_DUP2''@/$(GNULIB_DUP2)/g' \
-	      -e 's/@''GNULIB_DUP3''@/$(GNULIB_DUP3)/g' \
-	      -e 's/@''GNULIB_ENVIRON''@/$(GNULIB_ENVIRON)/g' \
-	      -e 's/@''GNULIB_EUIDACCESS''@/$(GNULIB_EUIDACCESS)/g' \
-	      -e 's/@''GNULIB_EXECL''@/$(GNULIB_EXECL)/g' \
-	      -e 's/@''GNULIB_EXECLE''@/$(GNULIB_EXECLE)/g' \
-	      -e 's/@''GNULIB_EXECLP''@/$(GNULIB_EXECLP)/g' \
-	      -e 's/@''GNULIB_EXECV''@/$(GNULIB_EXECV)/g' \
-	      -e 's/@''GNULIB_EXECVE''@/$(GNULIB_EXECVE)/g' \
-	      -e 's/@''GNULIB_EXECVP''@/$(GNULIB_EXECVP)/g' \
-	      -e 's/@''GNULIB_EXECVPE''@/$(GNULIB_EXECVPE)/g' \
-	      -e 's/@''GNULIB_FACCESSAT''@/$(GNULIB_FACCESSAT)/g' \
-	      -e 's/@''GNULIB_FCHDIR''@/$(GNULIB_FCHDIR)/g' \
-	      -e 's/@''GNULIB_FCHOWNAT''@/$(GNULIB_FCHOWNAT)/g' \
-	      -e 's/@''GNULIB_FDATASYNC''@/$(GNULIB_FDATASYNC)/g' \
-	      -e 's/@''GNULIB_FSYNC''@/$(GNULIB_FSYNC)/g' \
-	      -e 's/@''GNULIB_FTRUNCATE''@/$(GNULIB_FTRUNCATE)/g' \
-	      -e 's/@''GNULIB_GETCWD''@/$(GNULIB_GETCWD)/g' \
-	      -e 's/@''GNULIB_GETDOMAINNAME''@/$(GNULIB_GETDOMAINNAME)/g' \
-	      -e 's/@''GNULIB_GETDTABLESIZE''@/$(GNULIB_GETDTABLESIZE)/g' \
-	      -e 's/@''GNULIB_GETENTROPY''@/$(GNULIB_GETENTROPY)/g' \
-	      -e 's/@''GNULIB_GETGROUPS''@/$(GNULIB_GETGROUPS)/g' \
-	      -e 's/@''GNULIB_GETHOSTNAME''@/$(GNULIB_GETHOSTNAME)/g' \
-	      -e 's/@''GNULIB_GETLOGIN''@/$(GNULIB_GETLOGIN)/g' \
-	      -e 's/@''GNULIB_GETLOGIN_R''@/$(GNULIB_GETLOGIN_R)/g' \
-	      -e 's/@''GNULIB_GETOPT_POSIX''@/$(GNULIB_GETOPT_POSIX)/g' \
-	      -e 's/@''GNULIB_GETPAGESIZE''@/$(GNULIB_GETPAGESIZE)/g' \
-	      -e 's/@''GNULIB_GETPASS''@/$(GNULIB_GETPASS)/g' \
-	      -e 's/@''GNULIB_GETUSERSHELL''@/$(GNULIB_GETUSERSHELL)/g' \
-	      -e 's/@''GNULIB_GROUP_MEMBER''@/$(GNULIB_GROUP_MEMBER)/g' \
-	      -e 's/@''GNULIB_ISATTY''@/$(GNULIB_ISATTY)/g' \
-	      -e 's/@''GNULIB_LCHOWN''@/$(GNULIB_LCHOWN)/g' \
-	      -e 's/@''GNULIB_LINK''@/$(GNULIB_LINK)/g' \
-	      -e 's/@''GNULIB_LINKAT''@/$(GNULIB_LINKAT)/g' \
-	      -e 's/@''GNULIB_LSEEK''@/$(GNULIB_LSEEK)/g' \
-	      -e 's/@''GNULIB_PIPE''@/$(GNULIB_PIPE)/g' \
-	      -e 's/@''GNULIB_PIPE2''@/$(GNULIB_PIPE2)/g' \
-	      -e 's/@''GNULIB_PREAD''@/$(GNULIB_PREAD)/g' \
-	      -e 's/@''GNULIB_PWRITE''@/$(GNULIB_PWRITE)/g' \
-	      -e 's/@''GNULIB_READ''@/$(GNULIB_READ)/g' \
-	      -e 's/@''GNULIB_READLINK''@/$(GNULIB_READLINK)/g' \
-	      -e 's/@''GNULIB_READLINKAT''@/$(GNULIB_READLINKAT)/g' \
-	      -e 's/@''GNULIB_RMDIR''@/$(GNULIB_RMDIR)/g' \
-	      -e 's/@''GNULIB_SETHOSTNAME''@/$(GNULIB_SETHOSTNAME)/g' \
-	      -e 's/@''GNULIB_SLEEP''@/$(GNULIB_SLEEP)/g' \
-	      -e 's/@''GNULIB_SYMLINK''@/$(GNULIB_SYMLINK)/g' \
-	      -e 's/@''GNULIB_SYMLINKAT''@/$(GNULIB_SYMLINKAT)/g' \
-	      -e 's/@''GNULIB_TRUNCATE''@/$(GNULIB_TRUNCATE)/g' \
-	      -e 's/@''GNULIB_TTYNAME_R''@/$(GNULIB_TTYNAME_R)/g' \
-	      -e 's/@''GNULIB_UNISTD_H_GETOPT''@/0$(GNULIB_GL_UNISTD_H_GETOPT)/g' \
-	      -e 's/@''GNULIB_UNISTD_H_NONBLOCKING''@/$(GNULIB_UNISTD_H_NONBLOCKING)/g' \
-	      -e 's/@''GNULIB_UNISTD_H_SIGPIPE''@/$(GNULIB_UNISTD_H_SIGPIPE)/g' \
-	      -e 's/@''GNULIB_UNLINK''@/$(GNULIB_UNLINK)/g' \
-	      -e 's/@''GNULIB_UNLINKAT''@/$(GNULIB_UNLINKAT)/g' \
-	      -e 's/@''GNULIB_USLEEP''@/$(GNULIB_USLEEP)/g' \
-	      -e 's/@''GNULIB_WRITE''@/$(GNULIB_WRITE)/g' \
-	      -e 's/@''GNULIB_MDA_ACCESS''@/$(GNULIB_MDA_ACCESS)/g' \
-	      -e 's/@''GNULIB_MDA_CHDIR''@/$(GNULIB_MDA_CHDIR)/g' \
-	      -e 's/@''GNULIB_MDA_CLOSE''@/$(GNULIB_MDA_CLOSE)/g' \
-	      -e 's/@''GNULIB_MDA_DUP''@/$(GNULIB_MDA_DUP)/g' \
-	      -e 's/@''GNULIB_MDA_DUP2''@/$(GNULIB_MDA_DUP2)/g' \
-	      -e 's/@''GNULIB_MDA_EXECL''@/$(GNULIB_MDA_EXECL)/g' \
-	      -e 's/@''GNULIB_MDA_EXECLE''@/$(GNULIB_MDA_EXECLE)/g' \
-	      -e 's/@''GNULIB_MDA_EXECLP''@/$(GNULIB_MDA_EXECLP)/g' \
-	      -e 's/@''GNULIB_MDA_EXECV''@/$(GNULIB_MDA_EXECV)/g' \
-	      -e 's/@''GNULIB_MDA_EXECVE''@/$(GNULIB_MDA_EXECVE)/g' \
-	      -e 's/@''GNULIB_MDA_EXECVP''@/$(GNULIB_MDA_EXECVP)/g' \
-	      -e 's/@''GNULIB_MDA_EXECVPE''@/$(GNULIB_MDA_EXECVPE)/g' \
-	      -e 's/@''GNULIB_MDA_GETCWD''@/$(GNULIB_MDA_GETCWD)/g' \
-	      -e 's/@''GNULIB_MDA_GETPID''@/$(GNULIB_MDA_GETPID)/g' \
-	      -e 's/@''GNULIB_MDA_ISATTY''@/$(GNULIB_MDA_ISATTY)/g' \
-	      -e 's/@''GNULIB_MDA_LSEEK''@/$(GNULIB_MDA_LSEEK)/g' \
-	      -e 's/@''GNULIB_MDA_READ''@/$(GNULIB_MDA_READ)/g' \
-	      -e 's/@''GNULIB_MDA_RMDIR''@/$(GNULIB_MDA_RMDIR)/g' \
-	      -e 's/@''GNULIB_MDA_SWAB''@/$(GNULIB_MDA_SWAB)/g' \
-	      -e 's/@''GNULIB_MDA_UNLINK''@/$(GNULIB_MDA_UNLINK)/g' \
-	      -e 's/@''GNULIB_MDA_WRITE''@/$(GNULIB_MDA_WRITE)/g' \
+	      -e 's/@''GNULIB_ACCESS''@/$(GL_GNULIB_ACCESS)/g' \
+	      -e 's/@''GNULIB_CHDIR''@/$(GL_GNULIB_CHDIR)/g' \
+	      -e 's/@''GNULIB_CHOWN''@/$(GL_GNULIB_CHOWN)/g' \
+	      -e 's/@''GNULIB_CLOSE''@/$(GL_GNULIB_CLOSE)/g' \
+	      -e 's/@''GNULIB_COPY_FILE_RANGE''@/$(GL_GNULIB_COPY_FILE_RANGE)/g' \
+	      -e 's/@''GNULIB_DUP''@/$(GL_GNULIB_DUP)/g' \
+	      -e 's/@''GNULIB_DUP2''@/$(GL_GNULIB_DUP2)/g' \
+	      -e 's/@''GNULIB_DUP3''@/$(GL_GNULIB_DUP3)/g' \
+	      -e 's/@''GNULIB_ENVIRON''@/$(GL_GNULIB_ENVIRON)/g' \
+	      -e 's/@''GNULIB_EUIDACCESS''@/$(GL_GNULIB_EUIDACCESS)/g' \
+	      -e 's/@''GNULIB_EXECL''@/$(GL_GNULIB_EXECL)/g' \
+	      -e 's/@''GNULIB_EXECLE''@/$(GL_GNULIB_EXECLE)/g' \
+	      -e 's/@''GNULIB_EXECLP''@/$(GL_GNULIB_EXECLP)/g' \
+	      -e 's/@''GNULIB_EXECV''@/$(GL_GNULIB_EXECV)/g' \
+	      -e 's/@''GNULIB_EXECVE''@/$(GL_GNULIB_EXECVE)/g' \
+	      -e 's/@''GNULIB_EXECVP''@/$(GL_GNULIB_EXECVP)/g' \
+	      -e 's/@''GNULIB_EXECVPE''@/$(GL_GNULIB_EXECVPE)/g' \
+	      -e 's/@''GNULIB_FACCESSAT''@/$(GL_GNULIB_FACCESSAT)/g' \
+	      -e 's/@''GNULIB_FCHDIR''@/$(GL_GNULIB_FCHDIR)/g' \
+	      -e 's/@''GNULIB_FCHOWNAT''@/$(GL_GNULIB_FCHOWNAT)/g' \
+	      -e 's/@''GNULIB_FDATASYNC''@/$(GL_GNULIB_FDATASYNC)/g' \
+	      -e 's/@''GNULIB_FSYNC''@/$(GL_GNULIB_FSYNC)/g' \
+	      -e 's/@''GNULIB_FTRUNCATE''@/$(GL_GNULIB_FTRUNCATE)/g' \
+	      -e 's/@''GNULIB_GETCWD''@/$(GL_GNULIB_GETCWD)/g' \
+	      -e 's/@''GNULIB_GETDOMAINNAME''@/$(GL_GNULIB_GETDOMAINNAME)/g' \
+	      -e 's/@''GNULIB_GETDTABLESIZE''@/$(GL_GNULIB_GETDTABLESIZE)/g' \
+	      -e 's/@''GNULIB_GETENTROPY''@/$(GL_GNULIB_GETENTROPY)/g' \
+	      -e 's/@''GNULIB_GETGROUPS''@/$(GL_GNULIB_GETGROUPS)/g' \
+	      -e 's/@''GNULIB_GETHOSTNAME''@/$(GL_GNULIB_GETHOSTNAME)/g' \
+	      -e 's/@''GNULIB_GETLOGIN''@/$(GL_GNULIB_GETLOGIN)/g' \
+	      -e 's/@''GNULIB_GETLOGIN_R''@/$(GL_GNULIB_GETLOGIN_R)/g' \
+	      -e 's/@''GNULIB_GETOPT_POSIX''@/$(GL_GNULIB_GETOPT_POSIX)/g' \
+	      -e 's/@''GNULIB_GETPAGESIZE''@/$(GL_GNULIB_GETPAGESIZE)/g' \
+	      -e 's/@''GNULIB_GETPASS''@/$(GL_GNULIB_GETPASS)/g' \
+	      -e 's/@''GNULIB_GETUSERSHELL''@/$(GL_GNULIB_GETUSERSHELL)/g' \
+	      -e 's/@''GNULIB_GROUP_MEMBER''@/$(GL_GNULIB_GROUP_MEMBER)/g' \
+	      -e 's/@''GNULIB_ISATTY''@/$(GL_GNULIB_ISATTY)/g' \
+	      -e 's/@''GNULIB_LCHOWN''@/$(GL_GNULIB_LCHOWN)/g' \
+	      -e 's/@''GNULIB_LINK''@/$(GL_GNULIB_LINK)/g' \
+	      -e 's/@''GNULIB_LINKAT''@/$(GL_GNULIB_LINKAT)/g' \
+	      -e 's/@''GNULIB_LSEEK''@/$(GL_GNULIB_LSEEK)/g' \
+	      -e 's/@''GNULIB_PIPE''@/$(GL_GNULIB_PIPE)/g' \
+	      -e 's/@''GNULIB_PIPE2''@/$(GL_GNULIB_PIPE2)/g' \
+	      -e 's/@''GNULIB_PREAD''@/$(GL_GNULIB_PREAD)/g' \
+	      -e 's/@''GNULIB_PWRITE''@/$(GL_GNULIB_PWRITE)/g' \
+	      -e 's/@''GNULIB_READ''@/$(GL_GNULIB_READ)/g' \
+	      -e 's/@''GNULIB_READLINK''@/$(GL_GNULIB_READLINK)/g' \
+	      -e 's/@''GNULIB_READLINKAT''@/$(GL_GNULIB_READLINKAT)/g' \
+	      -e 's/@''GNULIB_RMDIR''@/$(GL_GNULIB_RMDIR)/g' \
+	      -e 's/@''GNULIB_SETHOSTNAME''@/$(GL_GNULIB_SETHOSTNAME)/g' \
+	      -e 's/@''GNULIB_SLEEP''@/$(GL_GNULIB_SLEEP)/g' \
+	      -e 's/@''GNULIB_SYMLINK''@/$(GL_GNULIB_SYMLINK)/g' \
+	      -e 's/@''GNULIB_SYMLINKAT''@/$(GL_GNULIB_SYMLINKAT)/g' \
+	      -e 's/@''GNULIB_TRUNCATE''@/$(GL_GNULIB_TRUNCATE)/g' \
+	      -e 's/@''GNULIB_TTYNAME_R''@/$(GL_GNULIB_TTYNAME_R)/g' \
+	      -e 's/@''GNULIB_UNISTD_H_GETOPT''@/0$(GL_GNULIB_GL_UNISTD_H_GETOPT)/g' \
+	      -e 's/@''GNULIB_UNISTD_H_NONBLOCKING''@/$(GL_GNULIB_UNISTD_H_NONBLOCKING)/g' \
+	      -e 's/@''GNULIB_UNISTD_H_SIGPIPE''@/$(GL_GNULIB_UNISTD_H_SIGPIPE)/g' \
+	      -e 's/@''GNULIB_UNLINK''@/$(GL_GNULIB_UNLINK)/g' \
+	      -e 's/@''GNULIB_UNLINKAT''@/$(GL_GNULIB_UNLINKAT)/g' \
+	      -e 's/@''GNULIB_USLEEP''@/$(GL_GNULIB_USLEEP)/g' \
+	      -e 's/@''GNULIB_WRITE''@/$(GL_GNULIB_WRITE)/g' \
+	      -e 's/@''GNULIB_MDA_ACCESS''@/$(GL_GNULIB_MDA_ACCESS)/g' \
+	      -e 's/@''GNULIB_MDA_CHDIR''@/$(GL_GNULIB_MDA_CHDIR)/g' \
+	      -e 's/@''GNULIB_MDA_CLOSE''@/$(GL_GNULIB_MDA_CLOSE)/g' \
+	      -e 's/@''GNULIB_MDA_DUP''@/$(GL_GNULIB_MDA_DUP)/g' \
+	      -e 's/@''GNULIB_MDA_DUP2''@/$(GL_GNULIB_MDA_DUP2)/g' \
+	      -e 's/@''GNULIB_MDA_EXECL''@/$(GL_GNULIB_MDA_EXECL)/g' \
+	      -e 's/@''GNULIB_MDA_EXECLE''@/$(GL_GNULIB_MDA_EXECLE)/g' \
+	      -e 's/@''GNULIB_MDA_EXECLP''@/$(GL_GNULIB_MDA_EXECLP)/g' \
+	      -e 's/@''GNULIB_MDA_EXECV''@/$(GL_GNULIB_MDA_EXECV)/g' \
+	      -e 's/@''GNULIB_MDA_EXECVE''@/$(GL_GNULIB_MDA_EXECVE)/g' \
+	      -e 's/@''GNULIB_MDA_EXECVP''@/$(GL_GNULIB_MDA_EXECVP)/g' \
+	      -e 's/@''GNULIB_MDA_EXECVPE''@/$(GL_GNULIB_MDA_EXECVPE)/g' \
+	      -e 's/@''GNULIB_MDA_GETCWD''@/$(GL_GNULIB_MDA_GETCWD)/g' \
+	      -e 's/@''GNULIB_MDA_GETPID''@/$(GL_GNULIB_MDA_GETPID)/g' \
+	      -e 's/@''GNULIB_MDA_ISATTY''@/$(GL_GNULIB_MDA_ISATTY)/g' \
+	      -e 's/@''GNULIB_MDA_LSEEK''@/$(GL_GNULIB_MDA_LSEEK)/g' \
+	      -e 's/@''GNULIB_MDA_READ''@/$(GL_GNULIB_MDA_READ)/g' \
+	      -e 's/@''GNULIB_MDA_RMDIR''@/$(GL_GNULIB_MDA_RMDIR)/g' \
+	      -e 's/@''GNULIB_MDA_SWAB''@/$(GL_GNULIB_MDA_SWAB)/g' \
+	      -e 's/@''GNULIB_MDA_UNLINK''@/$(GL_GNULIB_MDA_UNLINK)/g' \
+	      -e 's/@''GNULIB_MDA_WRITE''@/$(GL_GNULIB_MDA_WRITE)/g' \
 	      < $(srcdir)/unistd.in.h | \
 	  sed -e 's|@''HAVE_CHOWN''@|$(HAVE_CHOWN)|g' \
 	      -e 's|@''HAVE_COPY_FILE_RANGE''@|$(HAVE_COPY_FILE_RANGE)|g' \

@@ -53,6 +53,8 @@ AC_DEFUN([lgl_EARLY],
   # Code from module ctype-tests:
   # Code from module extensions:
   # Code from module extern-inline:
+  # Code from module free-posix:
+  # Code from module free-posix-tests:
   # Code from module gettext-h:
   # Code from module gperf:
   # Code from module havelib:
@@ -79,6 +81,7 @@ AC_DEFUN([lgl_EARLY],
   # Code from module limits-h:
   # Code from module limits-h-tests:
   # Code from module multiarch:
+  # Code from module snippet/_Noreturn:
   # Code from module snippet/arg-nonnull:
   # Code from module snippet/c++defs:
   # Code from module snippet/unused-parameter:
@@ -93,6 +96,8 @@ AC_DEFUN([lgl_EARLY],
   # Code from module stddef-tests:
   # Code from module stdint:
   # Code from module stdint-tests:
+  # Code from module stdlib:
+  # Code from module stdlib-tests:
   # Code from module striconv:
   # Code from module striconv-tests:
   # Code from module string:
@@ -103,6 +108,8 @@ AC_DEFUN([lgl_EARLY],
   # Code from module sys_types-tests:
   # Code from module test-framework-sh:
   # Code from module test-framework-sh-tests:
+  # Code from module unistd:
+  # Code from module unistd-tests:
   # Code from module unistr/base:
   # Code from module unistr/u8-check:
   # Code from module unistr/u8-check-tests:
@@ -129,9 +136,17 @@ AC_DEFUN([lgl_INIT],
   m4_pushdef([AC_LIBSOURCES], m4_defn([lgl_LIBSOURCES]))
   m4_pushdef([lgl_LIBSOURCES_LIST], [])
   m4_pushdef([lgl_LIBSOURCES_DIR], [])
+  m4_pushdef([GL_MACRO_PREFIX], [lgl])
+  m4_pushdef([GL_MODULE_INDICATOR_PREFIX], [GL_LGL])
   gl_COMMON
   gl_source_base='lib/gl'
   AC_REQUIRE([gl_EXTERN_INLINE])
+  gl_FUNC_FREE
+  if test $REPLACE_FREE = 1; then
+    AC_LIBOBJ([free])
+    gl_PREREQ_FREE
+  fi
+  gl_STDLIB_MODULE_INDICATOR([free-posix])
   AC_SUBST([LIBINTL])
   AC_SUBST([LTLIBINTL])
   AC_DEFUN([gl_HAVE_MODULE_HAVELIB])
@@ -139,6 +154,7 @@ AC_DEFUN([lgl_INIT],
   m4_ifdef([gl_ICONV_MODULE_INDICATOR],
     [gl_ICONV_MODULE_INDICATOR([iconv])])
   gl_ICONV_H
+  gl_ICONV_H_REQUIRE_DEFAULTS
   gl_FUNC_ICONV_OPEN
   if test $REPLACE_ICONV_OPEN = 1; then
     AC_LIBOBJ([iconv_open])
@@ -149,6 +165,7 @@ AC_DEFUN([lgl_INIT],
   fi
   gl_INLINE
   gl_LANGINFO_H
+  gl_LANGINFO_H_REQUIRE_DEFAULTS
   gl_LD_OUTPUT_DEF
   gl_LD_VERSION_SCRIPT
   gl_VISIBILITY
@@ -158,12 +175,16 @@ AC_DEFUN([lgl_INIT],
   gt_TYPE_SSIZE_T
   AM_STDBOOL_H
   gl_STDDEF_H
+  gl_STDDEF_H_REQUIRE_DEFAULTS
   gl_STDINT_H
+  gl_STDLIB_H
+  gl_STDLIB_H_REQUIRE_DEFAULTS
   if test $gl_cond_libtool = false; then
     gl_ltlibdeps="$gl_ltlibdeps $LTLIBICONV"
     gl_libdeps="$gl_libdeps $LIBICONV"
   fi
-  gl_HEADER_STRING_H
+  gl_STRING_H
+  gl_STRING_H_REQUIRE_DEFAULTS
   gl_FUNC_STRVERSCMP
   if test $HAVE_STRVERSCMP = 0; then
     AC_LIBOBJ([strverscmp])
@@ -171,14 +192,17 @@ AC_DEFUN([lgl_INIT],
   fi
   gl_STRING_MODULE_INDICATOR([strverscmp])
   gl_SYS_TYPES_H
+  gl_SYS_TYPES_H_REQUIRE_DEFAULTS
   AC_PROG_MKDIR_P
-  gl_LIBUNISTRING_LIBHEADER([0.9.4], [unistr.h])
+  gl_UNISTD_H
+  gl_UNISTD_H_REQUIRE_DEFAULTS
+  gl_LIBUNISTRING_LIBHEADER([0.9.11], [unistr.h])
   gl_LIBUNISTRING_MODULE([0.9], [unistr/u8-check])
   gl_MODULE_INDICATOR([unistr/u8-mbtoucr])
   gl_LIBUNISTRING_MODULE([0.9], [unistr/u8-mbtoucr])
   gl_MODULE_INDICATOR([unistr/u8-uctomb])
   gl_LIBUNISTRING_MODULE([0.9], [unistr/u8-uctomb])
-  gl_LIBUNISTRING_LIBHEADER([0.9.4], [unitypes.h])
+  gl_LIBUNISTRING_LIBHEADER([0.9.11], [unitypes.h])
   # End of code from modules
   m4_ifval(lgl_LIBSOURCES_LIST, [
     m4_syscmd([test ! -d ]m4_defn([lgl_LIBSOURCES_DIR])[ ||
@@ -191,6 +215,8 @@ AC_DEFUN([lgl_INIT],
       m4_if(m4_sysval, [0], [],
         [AC_FATAL([expected source file, required through AC_LIBSOURCES, not found])])
   ])
+  m4_popdef([GL_MODULE_INDICATOR_PREFIX])
+  m4_popdef([GL_MACRO_PREFIX])
   m4_popdef([lgl_LIBSOURCES_DIR])
   m4_popdef([lgl_LIBSOURCES_LIST])
   m4_popdef([AC_LIBSOURCES])
@@ -217,6 +243,8 @@ AC_DEFUN([lgl_INIT],
   m4_pushdef([AC_LIBSOURCES], m4_defn([lgltests_LIBSOURCES]))
   m4_pushdef([lgltests_LIBSOURCES_LIST], [])
   m4_pushdef([lgltests_LIBSOURCES_DIR], [])
+  m4_pushdef([GL_MACRO_PREFIX], [lgltests])
+  m4_pushdef([GL_MODULE_INDICATOR_PREFIX], [GL_LGL])
   gl_COMMON
   gl_source_base='lib/gltests'
 changequote(,)dnl
@@ -226,8 +254,10 @@ changequote([, ])dnl
   gl_module_indicator_condition=$lgltests_WITNESS
   m4_pushdef([gl_MODULE_INDICATOR_CONDITION], [$gl_module_indicator_condition])
   gl_CTYPE_H
+  gl_CTYPE_H_REQUIRE_DEFAULTS
   gl_INTTYPES_H
   gl_INTTYPES_INCOMPLETE
+  gl_INTTYPES_H_REQUIRE_DEFAULTS
   gl_FUNC_ISBLANK
   if test $HAVE_ISBLANK = 0; then
     AC_LIBOBJ([isblank])
@@ -238,6 +268,7 @@ changequote([, ])dnl
   AC_REQUIRE([gt_TYPE_WCHAR_T])
   AC_REQUIRE([gt_TYPE_WINT_T])
   gl_WCHAR_H
+  gl_WCHAR_H_REQUIRE_DEFAULTS
   m4_popdef([gl_MODULE_INDICATOR_CONDITION])
   m4_ifval(lgltests_LIBSOURCES_LIST, [
     m4_syscmd([test ! -d ]m4_defn([lgltests_LIBSOURCES_DIR])[ ||
@@ -250,6 +281,8 @@ changequote([, ])dnl
       m4_if(m4_sysval, [0], [],
         [AC_FATAL([expected source file, required through AC_LIBSOURCES, not found])])
   ])
+  m4_popdef([GL_MODULE_INDICATOR_PREFIX])
+  m4_popdef([GL_MACRO_PREFIX])
   m4_popdef([lgltests_LIBSOURCES_DIR])
   m4_popdef([lgltests_LIBSOURCES_LIST])
   m4_popdef([AC_LIBSOURCES])
@@ -331,6 +364,7 @@ AC_DEFUN([lgltests_LIBSOURCES], [
 # gnulib-tool and may be removed by future gnulib-tool invocations.
 AC_DEFUN([lgl_FILE_LIST], [
   build-aux/config.rpath
+  lib/_Noreturn.h
   lib/arg-nonnull.h
   lib/attribute.h
   lib/c++defs.h
@@ -340,6 +374,7 @@ AC_DEFUN([lgl_FILE_LIST], [
   lib/c-strcasecmp.c
   lib/c-strncasecmp.c
   lib/cdefs.h
+  lib/free.c
   lib/gettext.h
   lib/iconv.c
   lib/iconv.in.h
@@ -357,11 +392,14 @@ AC_DEFUN([lgl_FILE_LIST], [
   lib/stdbool.in.h
   lib/stddef.in.h
   lib/stdint.in.h
+  lib/stdlib.in.h
   lib/striconv.c
   lib/striconv.h
   lib/string.in.h
   lib/strverscmp.c
   lib/sys_types.in.h
+  lib/unistd.c
+  lib/unistd.in.h
   lib/unistr.in.h
   lib/unistr/u8-check.c
   lib/unistr/u8-mbtoucr.c
@@ -373,9 +411,10 @@ AC_DEFUN([lgl_FILE_LIST], [
   m4/00gnulib.m4
   m4/__inline.m4
   m4/absolute-header.m4
-  m4/ctype.m4
+  m4/ctype_h.m4
   m4/extensions.m4
   m4/extern-inline.m4
+  m4/free.m4
   m4/gnulib-common.m4
   m4/host-cpu-c-abi.m4
   m4/iconv.m4
@@ -402,9 +441,11 @@ AC_DEFUN([lgl_FILE_LIST], [
   m4/stdbool.m4
   m4/stddef_h.m4
   m4/stdint.m4
+  m4/stdlib_h.m4
   m4/string_h.m4
   m4/strverscmp.m4
   m4/sys_types_h.m4
+  m4/unistd_h.m4
   m4/visibility.m4
   m4/warn-on-use.m4
   m4/wchar_h.m4
@@ -416,6 +457,7 @@ AC_DEFUN([lgl_FILE_LIST], [
   tests/signature.h
   tests/test-c-ctype.c
   tests/test-ctype.c
+  tests/test-free.c
   tests/test-iconv-h.c
   tests/test-iconv.c
   tests/test-init.sh
@@ -428,10 +470,13 @@ AC_DEFUN([lgl_FILE_LIST], [
   tests/test-stdbool.c
   tests/test-stddef.c
   tests/test-stdint.c
+  tests/test-stdlib.c
   tests/test-striconv.c
   tests/test-string.c
   tests/test-strverscmp.c
   tests/test-sys_types.c
+  tests/test-sys_wait.h
+  tests/test-unistd.c
   tests/test-verify-try.c
   tests/test-verify.c
   tests/test-verify.sh
@@ -439,6 +484,7 @@ AC_DEFUN([lgl_FILE_LIST], [
   tests/unistr/test-u8-check.c
   tests/unistr/test-u8-mbtoucr.c
   tests/unistr/test-u8-uctomb.c
+  tests=lib/_Noreturn.h
   tests=lib/arg-nonnull.h
   tests=lib/c++defs.h
   tests=lib/ctype.in.h

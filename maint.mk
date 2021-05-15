@@ -909,7 +909,7 @@ endef
 
 # Don't define macros that we already get from gnulib header files.
 sc_prohibit_always-defined_macros:
-	@if test -d $(gnulib_dir); then					\
+	@if test -f $(gnulib_dir)/gnulib-tool; then			\
 	  case $$(echo all: | $(GREP) -l -f - Makefile) in Makefile);; *) \
 	    echo '$(ME): skipping $@: you lack GNU grep' 1>&2; exit 0;;	\
 	  esac;								\

@@ -1,5 +1,5 @@
---- gnulib/top/README-release	2025-03-16 21:17:15.975505310 +0100
-+++ README-release	2025-03-21 12:39:21.409227255 +0100
+--- /home/jas/src/gnulib/top/README-release	2026-01-21 14:22:30.624712680 +0100
++++ README-release	2026-01-21 14:21:46.008714754 +0100
 @@ -2,13 +2,25 @@
  
  * Start from a clean, up-to-date git directory on "master":
@@ -29,16 +29,14 @@
  
  * Ensure that you have no uncommitted diffs.  This should produce no
    output:
-@@ -19,18 +31,18 @@
+@@ -19,14 +31,18 @@
  
      git push origin master
  
--* Check that the NixOS/Hydra autobuilder is reporting all is well:
 +* Check that the GitLab autobuilder is reporting all is well:
- 
--    https://hydra.nixos.org/project/gnu/@PACKAGE@-master
++
 +    https://gitlab.com/libidn/libidn/-/pipelines
- 
++
  * Run the following command to download any new translations:
  
 -    ./bootstrap && ./configure
@@ -51,9 +49,9 @@
 -    make $c syntax-check distcheck
 +    make check syntax-check distcheck
  
- * To (i) set the date, version number, and release TYPE on line 3 of
+ * To (i) set the date, version number, and release TYPE near the top of
    NEWS, (ii) commit that, and (iii) tag the release, run
-@@ -38,6 +50,14 @@
+@@ -34,6 +50,14 @@
      # "TYPE" must be stable, beta or alpha
      make release-commit RELEASE='X.Y TYPE'
  
@@ -68,7 +66,7 @@
  * Run the following to create release tarballs.  Your choice selects the
    corresponding upload-to destination in the emitted gnupload command.
    The different destinations are specified in cfg.mk.  See the definitions
-@@ -49,9 +69,15 @@
+@@ -45,9 +69,15 @@
    it builds and passes all tests.
  
  * While that's happening, write the release announcement that you will
@@ -85,7 +83,7 @@
  Once all the builds and tests have passed,
  
  * Run the gnupload command that was suggested by your "make release"
-@@ -68,28 +94,6 @@
+@@ -64,28 +94,6 @@
      v=$(cat .prev-version)
      git push origin master tag v$v
  
@@ -114,7 +112,7 @@
  * Send the announcement email message.
  
  * After each non-alpha release, run
-@@ -98,4 +102,13 @@
+@@ -94,4 +102,13 @@
  
    to update the on-line manual accessible at
  

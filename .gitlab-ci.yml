@@ -25,7 +25,6 @@ stages:
  - test # tarball test builds
 
 default:
-  interruptible: true
   artifacts:
     expire_in: 2 weeks
     when: always

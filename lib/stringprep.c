@@ -1,5 +1,5 @@
 /* stringprep.c --- Core stringprep implementation.
-   Copyright (C) 2002-2025 Simon Josefsson
+   Copyright (C) 2002-2026 Simon Josefsson
 
    This file is part of GNU Libidn.
 

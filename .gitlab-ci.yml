@@ -697,7 +697,7 @@ R-Debian12:
   - time apt-get update -q
   - time apt-get install -y -q eatmydata
   - time apt-get update
-  - time eatmydata apt-get install -y -q make git wget autoconf automake libtool gettext autopoint cvs texinfo texlive texlive-plain-generic texlive-extra-utils help2man gtk-doc-tools dblatex valgrind gengetopt graphviz mono-mcs gperf default-jdk-headless wget
+  - time eatmydata apt-get install -y -q make git wget autoconf automake libtool gettext autopoint cvs texinfo texlive texlive-plain-generic texlive-extra-utils help2man gtk-doc-tools dblatex valgrind gengetopt graphviz mono-mcs gperf default-jdk-headless wget libdigest-sha3-perl
   script:
   - !reference [.gnulib-fetch, script]
   - time ./bootstrap --skip-po --no-git
@@ -745,7 +745,7 @@ R-Ubuntu2404:
   - cat /etc/os-release
   - time apt-get update -q
   - time apt-get install -y -q eatmydata
-  - time eatmydata apt-get install -qqy --no-install-recommends make git wget autoconf automake libtool gettext autopoint cvs texinfo texlive texlive-plain-generic texlive-extra-utils help2man gtk-doc-tools dblatex valgrind gengetopt graphviz ghostscript dotnet8 gperf default-jdk-headless patch codespell indent
+  - time eatmydata apt-get install -qqy --no-install-recommends make git wget autoconf automake libtool gettext autopoint cvs texinfo texlive texlive-plain-generic texlive-extra-utils help2man gtk-doc-tools dblatex valgrind gengetopt graphviz ghostscript dotnet8 gperf default-jdk-headless patch codespell indent libdigest-sha3-perl
   script:
   - !reference [.gnulib-fetch, script]
   - time ./bootstrap --skip-po --no-git

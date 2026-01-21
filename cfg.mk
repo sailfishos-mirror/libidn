@@ -72,7 +72,7 @@ update-po: refresh-po
 	done
 	git add po/*.po.in
 	git commit po/*.po.in \
-		-m "maint: Run 'make update-po' for new translations."
+		-m "maint: Run 'make update-po' for new translations"
 
 codespell_ignore_words_list = meu,bu,te,ba,noe,nwe,mye,myu,tye,tim,ede,wich,poin
 exclude_file_name_regexp--sc_codespell = ^gnulib|doc/specifications/.*|doc/gdoc|po/.*\.po\.in|fuzz/libidn_(stringprep|toascii|tounicode)_fuzzer.in/.*$$

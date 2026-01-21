@@ -58,7 +58,7 @@ review-diff:
 my-update-copyright:
 	make update-copyright update-copyright-env='UPDATE_COPYRIGHT_USE_INTERVALS=1'
 	make update-copyright update-copyright-env='UPDATE_COPYRIGHT_HOLDER="Simon Josefsson" UPDATE_COPYRIGHT_USE_INTERVALS=1'
-	perl -pi -e "s/2002-20.. Simon Josefsson/2002-`(date +%Y)` Simon Josefsson/" doc/Makefile.am src/idn.c
+	perl -pi -e "s/2002-20.. Simon Josefsson/2002-`(date +%Y)` Simon Josefsson/" doc/Makefile.am src/idn.c doc/specifications/Makefile.am
 
 aximport:
 	for f in m4/ax_*.m4; do \

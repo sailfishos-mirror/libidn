@@ -179,7 +179,7 @@ main (int argc, char **argv)
 
   if (argv[1][1] == 'd')
     {
-      char input[ace_max_length + 2], *p, *pp;
+      char input[ace_max_length + 2], *p;
       uint32_t output[unicode_max_length];
 
       /* Read the Punycode input string and convert to ASCII: */
@@ -197,7 +197,7 @@ main (int argc, char **argv)
 
       for (p = input; *p != 0; ++p)
 	{
-	  pp = strchr (print_ascii, *p);
+	  const char *pp = strchr (print_ascii, *p);
 	  if (pp == 0)
 	    fail (invalid_input);
 	  *p = pp - print_ascii;

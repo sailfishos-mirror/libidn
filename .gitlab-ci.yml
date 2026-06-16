@@ -285,23 +285,33 @@ B-Ubuntu2204:
   - mv -v *-src.tar.* ../out/$CI_JOB_NAME_SLUG/src/
   - mv -v *.tar.* ../out/$CI_JOB_NAME_SLUG/
 
-B-Ubuntu2404-arm64:
-  image: ubuntu:24.04
-  tags: [ saas-linux-small-arm64 ]
+B-Trisquel12:
+  image: kpengboy/trisquel:12.0
+  tags: [ saas-linux-medium-amd64 ]
   stage: build
+  variables:
+    DEBIAN_FRONTEND: noninteractive
   before_script:
   - cat /etc/os-release
-  - time apt-get update -qq
-  - time apt-get install -qqy --no-install-recommends make git wget autoconf automake libtool gettext autopoint cvs texinfo help2man gtk-doc-tools valgrind gengetopt graphviz dotnet8 gperf default-jdk-headless patch codespell indent | tee pkgs.log | tail
+  - sed -i 's,archive.trisquel.info/trisquel,ftp.acc.umu.se/mirror/trisquel/packages,' /etc/apt/sources.list
+  - time apt-get update -q
+  - time apt-get install -y -q eatmydata
+  - time eatmydata apt-get install -y make git wget autoconf automake libtool gettext autopoint cvs texinfo help2man gtk-doc-tools valgrind gengetopt graphviz mono-mcs gperf default-jdk-headless codespell libidn-dev
   script:
+  - env srcdir=tests tests/standalone.sh
+  - time apt-get remove -y --purge libidn-dev | tail
   - !reference [.gnulib-fetch, script]
   - time ./bootstrap --skip-po --no-git
-  - time ./configure --enable-java --enable-gcc-warnings=error
-  - grep '^HAVE_DOTNET = 1$' Makefile > /dev/null
-  - grep '^HAVE_MONO = $' Makefile > /dev/null
-  - time make -j$(nproc) syntax-check
-  - time make -j$(nproc) check V=1 VERBOSE=t
-  - time make -j$(nproc) distcheck AM_DISTCHECK_DVI_TARGET=
+  - time ./configure --enable-gcc-warnings=error --enable-valgrind-tests
+  - grep '^HAVE_DOTNET = $' Makefile > /dev/null
+  - grep '^HAVE_MONO = 1$' Makefile > /dev/null
+  - time make syntax-check
+  - time make -j$(nproc) V=1 VERBOSE=t check
+  - make -C doc compare-makefile
+  - time make -j$(nproc) V=1 VERBOSE=t distcheck AM_DISTCHECK_DVI_TARGET=
+  - env STANDALONE_CFLAGS="-Ilib lib/.libs/libidn.a" tests/standalone.sh
+  - env STANDALONE_CFLAGS="-Ilib -Wl,-rpath lib/.libs lib/.libs/libidn.so" tests/standalone.sh
+  - make dist
   - !reference [.save-artifacts, script]
 
 B-Ubuntu2404:
@@ -316,6 +326,25 @@ B-Ubuntu2404:
   - !reference [.gnulib-fetch, script]
   - time ./bootstrap --skip-po --no-git
   - time ./configure --enable-java --enable-gcc-warnings=error --disable-silent-rules
+  - grep '^HAVE_DOTNET = 1$' Makefile > /dev/null
+  - grep '^HAVE_MONO = $' Makefile > /dev/null
+  - time make -j$(nproc) syntax-check
+  - time make -j$(nproc) check V=1 VERBOSE=t
+  - time make -j$(nproc) distcheck AM_DISTCHECK_DVI_TARGET=
+  - !reference [.save-artifacts, script]
+
+B-Ubuntu2604-arm64:
+  image: ubuntu:26.04
+  tags: [ saas-linux-small-arm64 ]
+  stage: build
+  before_script:
+  - cat /etc/os-release
+  - time apt-get update -qq
+  - time apt-get install -qqy --no-install-recommends make git wget autoconf automake libtool gettext autopoint cvs texinfo help2man gtk-doc-tools valgrind gengetopt graphviz dotnet10 gperf default-jdk-headless patch codespell indent | tee pkgs.log | tail
+  script:
+  - !reference [.gnulib-fetch, script]
+  - time ./bootstrap --skip-po --no-git
+  - time ./configure --enable-java --enable-gcc-warnings=error
   - grep '^HAVE_DOTNET = 1$' Makefile > /dev/null
   - grep '^HAVE_MONO = $' Makefile > /dev/null
   - time make -j$(nproc) syntax-check
@@ -589,7 +618,7 @@ B-Windows-UCRT64:
 0-compare:
   image: alpine:latest
   stage: repro
-  needs: [ Q-Debian-testing, B-AlmaLinux8, B-AlmaLinux9, B-RockyLinux8, B-RockyLinux9, B-Trisquel11, B-Ubuntu2204, B-PureOS10, B-Debian11, B-Debian9, B-Debian12, B-Devuan5, B-Debian-testing, B-Guix, B-Fedora-latest, B-Ubuntu-rolling, B-Ubuntu2404-arm64, B-Ubuntu2404, R-Guix, R-Debian12, R-Ubuntu2404, S-Trisquel10, S-Ubuntu2004, T-Trisquel10, T-Ubuntu2004 ]
+  needs: [ Q-Debian-testing, B-AlmaLinux8, B-AlmaLinux9, B-RockyLinux8, B-RockyLinux9, B-Trisquel11, B-Ubuntu2204, B-Trisquel12, B-Ubuntu2404, B-PureOS10, B-Debian11, B-Debian9, B-Debian12, B-Devuan5, B-Debian-testing, B-Guix, B-Fedora-latest, B-Ubuntu-rolling, B-Ubuntu2604-arm64, R-Guix, R-Debian12, R-Ubuntu2404, S-Trisquel10, S-Ubuntu2004, T-Trisquel10, T-Ubuntu2004 ]
   script:
   - cd out
   - sha256sum */*.tar.* */*/*.tar.* | sort | grep    -- -src.tar.
@@ -604,8 +633,10 @@ B-Windows-UCRT64:
   - cmp b-almalinux8/src/*.tar.gz b-devuan5/src/*.tar.gz
   - cmp b-almalinux8/src/*.tar.gz b-rockylinux8/src/*.tar.gz
   - cmp b-almalinux8/src/*.tar.gz b-rockylinux9/src/*.tar.gz
+  - cmp b-almalinux8/src/*.tar.gz b-trisquel12/src/*.tar.gz
   - cmp b-almalinux8/src/*.tar.gz b-ubuntu-rolling/src/*.tar.gz
-  - cmp b-almalinux8/src/*.tar.gz b-ubuntu2404-arm64/src/*.tar.gz
+  - cmp b-almalinux8/src/*.tar.gz b-ubuntu2404/src/*.tar.gz
+  - cmp b-almalinux8/src/*.tar.gz b-ubuntu2604-arm64/src/*.tar.gz
   - cmp b-almalinux8/src/*.tar.gz r-debian12/src/*.tar.gz
   - cmp b-almalinux8/src/*.tar.gz r-guix/src/*.tar.gz
   - cmp b-almalinux8/src/*.tar.gz r-ubuntu2404/src/*v1.*.tar.gz
@@ -621,7 +652,7 @@ B-Windows-UCRT64:
   - cmp b-guix/*.tar.gz r-guix/*.tar.gz
   - cmp b-pureos10/*.tar.gz b-debian11/*.tar.gz
   - cmp b-trisquel11/*.tar.gz b-ubuntu2204/*.tar.gz
-  - cmp b-ubuntu2404-arm64/*.tar.gz b-ubuntu2404/*.tar.gz
+  - cmp b-trisquel12/*.tar.gz b-ubuntu2404/*.tar.gz
   - cmp t-trisquel10/*.tar.gz t-ubuntu2004/*.tar.gz
 # Confirm 'make dist' from git-archive tarball reproducibility
   - cmp s-trisquel10/*.tar.gz s-ubuntu2004/*.tar.gz

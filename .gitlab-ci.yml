@@ -1209,6 +1209,19 @@ RockyLinux9-ppc64:
   - time ./configure --enable-gcc-warnings=error
   - time make -j$(nproc) check V=1 VERBOSE=t
 
+RockyLinux10-clang-MSAN: # https://clang.llvm.org/docs/MemorySanitizer.html
+  image: rockylinux/rockylinux:10
+  stage: test
+  needs: [B-Guix]
+  before_script:
+  - cat /etc/os-release
+  - dnf -y install make clang diffutils gzip
+  script:
+  - tar xfa out/b-guix/libidn-*.tar.gz
+  - cd $(tar tfa out/b-guix/libidn-*.tar.gz | head -n1)
+  - time ./configure CC="clang" CFLAGS="-O0 -g -fsanitize=memory -fno-omit-frame-pointer -fno-optimize-sibling-calls -fsanitize-memory-track-origins=2"
+  - time make -j$(nproc) check V=1 VERBOSE=t
+
 Ubuntu12.04:
   image: ubuntu:12.04
   stage: test

@@ -32,7 +32,7 @@ $(tst_versions_OBJECTS): $(top_srcdir)/.version
 ctests = tst_stringprep tst_punycode tst_idna tst_idna2 tst_idna3	\
 	tst_idna4 tst_nfkc tst_pr29 tst_strerror tst_toutf8		\
 	tst_symbols tst_badutf8 tst_utf8crash tst_toascii64oob		\
-	tst_badutf8nfkc tst_versions
+	tst_badutf8nfkc tst_versions tst_uninitialized
 if TLD
 ctests += tst_tld
 endif

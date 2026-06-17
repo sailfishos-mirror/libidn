@@ -1,10 +1,14 @@
+# Translation of libidn in Romanian.
 # Mesajele în limba română pentru libidn.
-# Copyright (C) 2003 Free Software Foundation, Inc.
+# Copyright © 2003, 2022, 2026 Free Software Foundation, Inc.
 # Acest fișier este distribuit sub aceeași licență ca și pachetul libidn.
 # This file is distributed under the same license as the libidn package.
 #
 # Laurentiu Buzdugan <lbuz@rolix.org>, 2003.
-# Traducere făcută de LB, pentru versiunea libidn 0.4.1.
+# Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>, 2022, 2026.
+#
+# Cronologia traducerii fișierului „lilypond”:
+# Traducerea inițială făcută de LB, pentru versiunea libidn 0.4.1.
 # Actualizare a mesajelor, de la fișierul „libidn-1.36a.pot”.
 # Actualizare a codării caracteror, la codarea de caractere UTF-8.
 # Actualizare a diacriticelor de la „cu sedilă” la „cu virgulă”.
@@ -12,14 +16,16 @@
 # NU și a mesajelor traduse (acestea au rămas neschimbate).
 # Eliminare a mesajelor ce-au dispărut în ultima versiune.
 # Actualizări realizate de Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>, 15.01.2022.
-# Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>, 2022.
+# Actualizare a traducerii pentru versiunea 1.36a, făcută de R-GC, feb-2022.
+# Actualizare a traducerii pentru versiunea 1.44, făcută de R-GC, iun-2026.
+# Actualizare a traducerii pentru versiunea Y, făcută de X, Z(luna-anul).
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libidn 1.36a\n"
+"Project-Id-Version: libidn 1.44\n"
 "Report-Msgid-Bugs-To: bug-libidn@gnu.org\n"
-"POT-Creation-Date: 2020-06-10 20:33+0200\n"
-"PO-Revision-Date: 2022-02-28 19:49+0100\n"
+"POT-Creation-Date: 2026-06-16 15:38+0000\n"
+"PO-Revision-Date: 2026-06-17 12:07+0200\n"
 "Last-Translator: Remus-Gabriel Chelu <remusgabriel.chelu@disroot.org>\n"
 "Language-Team: Romanian <translation-team-ro@lists.sourceforge.net>\n"
 "Language: ro\n"
@@ -28,7 +34,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < 20)) ? 1 : 2);\n"
 "X-Bugs: Report translation errors to the Language-Team address.\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.8\n"
 
 #: lib/strerror-idna.c:82 lib/strerror-pr29.c:66 lib/strerror-punycode.c:66
 #: lib/strerror-stringprep.c:87 lib/strerror-tld.c:68
@@ -251,93 +257,92 @@ msgstr ""
 "      --debug              Imprimă informațiile de depanare\n"
 "      --quiet              Funcționare silențioasă\n"
 
-#: src/idn.c:173
-#, c-format
+#: src/idn.c:174
 msgid "only one of -s, -e, -d, -a, -u or -n can be specified"
 msgstr "numai una din opțiunile -s, -e, -d, -a, -u sau -n poate fi specificată"
 
-#: src/idn.c:182
+#: src/idn.c:183
 #, c-format
 msgid "Charset: %s\n"
 msgstr "Setul de caractere: „%s”.\n"
 
-#: src/idn.c:186
-#, c-format
+#: src/idn.c:188
 msgid "Type each input string on a line by itself, terminated by a newline character.\n"
 msgstr "Scrieți fiecare șir de intrare pe o singură linie, terminată printr-un caracter de linie nouă.\n"
 
-#: src/idn.c:198
+#: src/idn.c:197
 #, c-format
+msgid "strdup"
+msgstr "strdup()"
+
+#: src/idn.c:204
 msgid "input error"
 msgstr "eroare de intrare"
 
-#: src/idn.c:209 src/idn.c:272 src/idn.c:355 src/idn.c:432 src/idn.c:513
+#: src/idn.c:215 src/idn.c:278 src/idn.c:361 src/idn.c:438 src/idn.c:519
 #, c-format
 msgid "could not convert from %s to UTF-8"
 msgstr "nu s-a putut converti de la %s la UTF-8"
 
-#: src/idn.c:217 src/idn.c:242 src/idn.c:279 src/idn.c:496 src/idn.c:525
-#: src/idn.c:549
-#, c-format
+#: src/idn.c:223 src/idn.c:248 src/idn.c:285 src/idn.c:502 src/idn.c:531
+#: src/idn.c:556
 msgid "could not convert from UTF-8 to UCS-4"
 msgstr "nu s-a putut converti de la UTF-8 la UCS-4"
 
-#: src/idn.c:234
+#: src/idn.c:240
 #, c-format
 msgid "stringprep_profile: %s"
 msgstr "stringprep_profile: %s"
 
-#: src/idn.c:257 src/idn.c:300 src/idn.c:343 src/idn.c:501 src/idn.c:562
+#: src/idn.c:263 src/idn.c:306 src/idn.c:349 src/idn.c:507 src/idn.c:569
 #, c-format
 msgid "could not convert from UTF-8 to %s"
 msgstr "nu s-a putut converti de la UTF-8 la %s"
 
-#: src/idn.c:293
+#: src/idn.c:299
 #, c-format
 msgid "punycode_encode: %s"
 msgstr "punycode_encode: %s"
 
-#: src/idn.c:315
+#: src/idn.c:321
 #, c-format
 msgid "malloc"
 msgstr "malloc"
 
-#: src/idn.c:321
+#: src/idn.c:327
 #, c-format
 msgid "punycode_decode: %s"
 msgstr "punycode_decode: %s"
 
-#: src/idn.c:338 src/idn.c:362 src/idn.c:440
-#, c-format
+#: src/idn.c:344 src/idn.c:368 src/idn.c:446
 msgid "could not convert from UCS-4 to UTF-8"
 msgstr "nu s-a putut converti de la UCS-4 la UTF-8"
 
-#: src/idn.c:379
+#: src/idn.c:385
 #, c-format
 msgid "idna_to_ascii_4z: %s"
 msgstr "idna_to_ascii_4z: %s"
 
-#: src/idn.c:393
+#: src/idn.c:399
 #, c-format
 msgid "idna_to_unicode_8z4z (TLD): %s"
 msgstr "idna_to_unicode_8z4z (TLD): %s"
 
-#: src/idn.c:407 src/idn.c:480
+#: src/idn.c:413 src/idn.c:486
 #, c-format
 msgid "tld_check_4z (position %lu): %s"
 msgstr "tld_check_4z (poziția %lu): %s"
 
-#: src/idn.c:410 src/idn.c:486
+#: src/idn.c:416 src/idn.c:492
 #, c-format
 msgid "tld_check_4z: %s"
 msgstr "tld_check_4z: %s"
 
-#: src/idn.c:459
+#: src/idn.c:465
 #, c-format
 msgid "idna_to_unicode_8z4z: %s"
 msgstr "idna_to_unicode_8z4z: %s"
 
-#: src/idn.c:538
-#, c-format
+#: src/idn.c:545
 msgid "could not do NFKC normalization"
 msgstr "nu s-a putut face normalizarea NFKC"

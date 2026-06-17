@@ -1,14 +1,14 @@
 # Czech translation for libidn.
 # Copyright (C) 2007 Free Software Foundation, Inc.
 # This file is distributed under the same license as the libidn package.
-# Petr Pisar <petr.pisar@atlas.cz>, 2007, 2008, 2011, 2020.
+# Petr Pisar <petr.pisar@atlas.cz>, 2007, 2008, 2011, 2020, 2026.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: libidn 1.36a\n"
+"Project-Id-Version: libidn 1.44\n"
 "Report-Msgid-Bugs-To: bug-libidn@gnu.org\n"
-"POT-Creation-Date: 2020-06-10 20:33+0200\n"
-"PO-Revision-Date: 2020-07-23 20:30+02:00\n"
+"POT-Creation-Date: 2026-06-16 15:38+0000\n"
+"PO-Revision-Date: 2026-06-17 20:47+02:00\n"
 "Last-Translator: Petr Pisar <petr.pisar@atlas.cz>\n"
 "Language-Team: Czech <translation-team-cs@lists.sourceforge.net>\n"
 "Language: cs\n"
@@ -241,94 +241,93 @@ msgstr ""
 "      --debug              Vypíše ladicí informace\n"
 "      --quiet              Pracuje potichu\n"
 
-#: src/idn.c:173
-#, c-format
+#: src/idn.c:174
 msgid "only one of -s, -e, -d, -a, -u or -n can be specified"
 msgstr "Pouze jeden přepínač z -s, -e, -d, -a, -u nebo -n smí být zadán."
 
-#: src/idn.c:182
+#: src/idn.c:183
 #, c-format
 msgid "Charset: %s\n"
 msgstr "Znaková sada: %s\n"
 
-#: src/idn.c:186
-#, c-format
+#: src/idn.c:188
 msgid "Type each input string on a line by itself, terminated by a newline character.\n"
 msgstr "Pište po jednom vstupním řetězci na jednom řádku zakončeným znakem nového řádku.\n"
 
-#: src/idn.c:198
+#: src/idn.c:197
 #, c-format
+msgid "strdup"
+msgstr "strdup"
+
+#: src/idn.c:204
 msgid "input error"
 msgstr "chyba na vstupu"
 
-#: src/idn.c:209 src/idn.c:272 src/idn.c:355 src/idn.c:432 src/idn.c:513
+#: src/idn.c:215 src/idn.c:278 src/idn.c:361 src/idn.c:438 src/idn.c:519
 #, c-format
 msgid "could not convert from %s to UTF-8"
 msgstr "nelze převést z %s do UTF-8"
 
-#: src/idn.c:217 src/idn.c:242 src/idn.c:279 src/idn.c:496 src/idn.c:525
-#: src/idn.c:549
-#, c-format
+#: src/idn.c:223 src/idn.c:248 src/idn.c:285 src/idn.c:502 src/idn.c:531
+#: src/idn.c:556
 msgid "could not convert from UTF-8 to UCS-4"
 msgstr "nelze převést z UTF-8 do UCS-4"
 
-#: src/idn.c:234
+#: src/idn.c:240
 #, c-format
 msgid "stringprep_profile: %s"
 msgstr "stringprep_profile (profil pro přípravu řetězce): %s"
 
-#: src/idn.c:257 src/idn.c:300 src/idn.c:343 src/idn.c:501 src/idn.c:562
+#: src/idn.c:263 src/idn.c:306 src/idn.c:349 src/idn.c:507 src/idn.c:569
 #, c-format
 msgid "could not convert from UTF-8 to %s"
 msgstr "nelze převést z UTF-8 do %s"
 
-#: src/idn.c:293
+#: src/idn.c:299
 #, c-format
 msgid "punycode_encode: %s"
 msgstr "punycode_encode (zakódování do Punycodu): %s"
 
-#: src/idn.c:315
+#: src/idn.c:321
 #, c-format
 msgid "malloc"
 msgstr "malloc"
 
-#: src/idn.c:321
+#: src/idn.c:327
 #, c-format
 msgid "punycode_decode: %s"
 msgstr "punycode_decode (dekódování Punycodu): %s"
 
-#: src/idn.c:338 src/idn.c:362 src/idn.c:440
-#, c-format
+#: src/idn.c:344 src/idn.c:368 src/idn.c:446
 msgid "could not convert from UCS-4 to UTF-8"
 msgstr "nelze převést z UCS-4 do UTF-8"
 
-#: src/idn.c:379
+#: src/idn.c:385
 #, c-format
 msgid "idna_to_ascii_4z: %s"
 msgstr "idna_to_ascii_4z: %s"
 
-#: src/idn.c:393
+#: src/idn.c:399
 #, c-format
 msgid "idna_to_unicode_8z4z (TLD): %s"
 msgstr "idna_to_unicode_8z4z (TLD): %s"
 
-#: src/idn.c:407 src/idn.c:480
+#: src/idn.c:413 src/idn.c:486
 #, c-format
 msgid "tld_check_4z (position %lu): %s"
 msgstr "tld_check_4z (pozice %lu): %s"
 
-#: src/idn.c:410 src/idn.c:486
+#: src/idn.c:416 src/idn.c:492
 #, c-format
 msgid "tld_check_4z: %s"
 msgstr "tld_check_4z: %s"
 
-#: src/idn.c:459
+#: src/idn.c:465
 #, c-format
 msgid "idna_to_unicode_8z4z: %s"
 msgstr "idna_to_unicode_8z4z: %s"
 
-#: src/idn.c:538
-#, c-format
+#: src/idn.c:545
 msgid "could not do NFKC normalization"
 msgstr "nebylo možné znormalizovat do NFKC"
 

@@ -6,10 +6,10 @@
 # Božidar Putanec <bozidarp@yahoo.com>, 2026"
 msgid ""
 msgstr ""
-"Project-Id-Version: libidn 1.40\n"
+"Project-Id-Version: libidn 1.44\n"
 "Report-Msgid-Bugs-To: bug-libidn@gnu.org\n"
-"POT-Creation-Date: 2022-06-20 22:26+0200\n"
-"PO-Revision-Date: 2026-03-08 18:34-0700\n"
+"POT-Creation-Date: 2026-06-16 15:38+0000\n"
+"PO-Revision-Date: 2026-06-18 22:54-0700\n"
 "Last-Translator: Božidar Putanec <bozidarp@yahoo.com>\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
 "Language: hr\n"
@@ -27,122 +27,121 @@ msgstr "Uspjeh"
 
 #: lib/strerror-idna.c:86 lib/strerror-pr29.c:74
 msgid "String preparation failed"
-msgstr "neuspjela priprema stringa"
+msgstr "Priprema stringa nije upsjela"
 
-# Punycode is a character encoding scheme that converts Unicode domain names (e.g., containing non-Latin, Cyrillic, or special characters) into an ASCII-compatible format (ACE), starting with "xn--".
 #: lib/strerror-idna.c:90
 msgid "Punycode failed"
-msgstr "neuspjela Punycode pretvorba"
+msgstr "Punycode kodiranje nije uspjelo"
 
 #: lib/strerror-idna.c:94
 msgid "Non-digit/letter/hyphen in input"
-msgstr "ulaz sadrži znak koji nije znamenka, slovo niti crtica"
+msgstr "Znak koji nije znamenka, slovo ili crtica na ulazu"
 
 #: lib/strerror-idna.c:98
 msgid "Forbidden leading or trailing minus sign ('-')"
-msgstr "zabranjen početni ili završni minus znak („-”)"
+msgstr "Neispravan znak minusa ('-') na početku ili na kraju"
 
 #: lib/strerror-idna.c:102
 msgid "Output would be too large or too small"
-msgstr "izlaz bi bio prevelik ili premalen"
+msgstr "Izlaz bi bio prevelik ili premalen"
 
 #: lib/strerror-idna.c:106
 msgid "Input does not start with ACE prefix ('xn--')"
-msgstr "ulaz ne počinje s ACE prefiksom („xn--”)"
+msgstr "Ulazni string ne započinje s ACE prefiksom ('xn--')"
 
 #: lib/strerror-idna.c:110
 msgid "String not idempotent under ToASCII"
-msgstr "string nije idempotentan pri ToASCII pretvorbi"
+msgstr "String se ne vraća u izvorni oblik nakon ToASCII pretvorbe (nije idempotentan)"
 
 #: lib/strerror-idna.c:114
 msgid "Input already contain ACE prefix ('xn--')"
-msgstr "ulaz već sadrži ACE prefiks („xn--”)"
+msgstr "Ulaz već sadrži ACE prefiks ('xn--')"
 
 #: lib/strerror-idna.c:118 lib/strerror-stringprep.c:127 lib/strerror-tld.c:84
 msgid "Character encoding conversion error"
-msgstr "pogreška u pretvorbi kodiranja znakova"
+msgstr "Greška pri pretvorbi kodiranja znakova"
 
 #: lib/strerror-idna.c:122 lib/strerror-stringprep.c:135 lib/strerror-tld.c:80
 msgid "Cannot allocate memory"
-msgstr "neuspjela alokacija memorije"
+msgstr "Nema dovoljno dostupne memorije"
 
 #: lib/strerror-idna.c:126
 msgid "System dlopen failed"
-msgstr "neuspješan sistemski dlopen"
+msgstr "Sustavna funkcija dlopen() nije uspjela"
 
 #: lib/strerror-idna.c:130 lib/strerror-pr29.c:78 lib/strerror-punycode.c:82
 #: lib/strerror-stringprep.c:139 lib/strerror-tld.c:92
 msgid "Unknown error"
-msgstr "nepoznata pogreška"
+msgstr "Nepoznata greška"
 
 #: lib/strerror-pr29.c:70
 msgid "String not idempotent under Unicode NFKC normalization"
-msgstr "string nije idempotentan prema Unicode NFKC normalizaciji"
+msgstr "String je dvojben kada se normalizira prema Unicode NFKC-u(nije idempotentan)"
 
 #: lib/strerror-punycode.c:70
 msgid "Invalid input"
-msgstr "neispravan ulaz"
+msgstr "Neispravan ulaz"
 
 #: lib/strerror-punycode.c:74 lib/strerror-stringprep.c:111
 msgid "Output would exceed the buffer space provided"
-msgstr "izlaz bi premašio dostupni prostor međuspremnika"
+msgstr "Izlaz bi premašio dostupni prostor međuspremnika"
 
 #: lib/strerror-punycode.c:78
 msgid "String size limit exceeded"
-msgstr "prekoračeno ograničenje veličine niza"
+msgstr "String je predug"
 
 #: lib/strerror-stringprep.c:91
 msgid "Forbidden unassigned code points in input"
-msgstr "zabranjene nedodijeljene kodne točke na ulazu"
+msgstr "Zabranjene nedodijeljene kodne točke u ulaznim podacima"
 
 #: lib/strerror-stringprep.c:95
 msgid "Prohibited code points in input"
-msgstr "zabranjene kodne točke na ulazu"
+msgstr "Zabranjene kodne točke u ulaznim podacima"
 
 #: lib/strerror-stringprep.c:99
 msgid "Conflicting bidirectional properties in input"
-msgstr "konfliktna dvosmjerna svojstva u ulazu"
+msgstr "Konfliktna dvosmjerna svojstva u ulaznim podacima"
 
 #: lib/strerror-stringprep.c:103
 msgid "Malformed bidirectional string"
-msgstr "neispravno oblikovan dvosmjerni string"
+msgstr "Neispravno oblikovan dvosmjerni string"
 
 #: lib/strerror-stringprep.c:107
 msgid "Prohibited bidirectional code points in input"
-msgstr "zabranjene dvosmjerne kodne točke na ulazu"
+msgstr "Zabranjene dvosmjerne kodne točke u ulaznim podacima"
 
 #: lib/strerror-stringprep.c:115
 msgid "Error in stringprep profile definition"
-msgstr "pogreška u definiciji stringprep profila"
+msgstr "Greška u definiciji stringprep profila"
 
 #: lib/strerror-stringprep.c:119
 msgid "Flag conflict with profile"
-msgstr "konflikt zastavice (flag) s profilom"
+msgstr "Konflikt opcije s profilom"
 
 #: lib/strerror-stringprep.c:123
 msgid "Unknown profile"
-msgstr "nepoznat profil"
+msgstr "Nepoznat profil"
 
 #: lib/strerror-stringprep.c:131
 msgid "Unicode normalization failed (internal error)"
-msgstr "neuspjela Unicode normalizacija (interna pogreška)"
+msgstr "Unicode normalizacija nije uspjela (interna greška)"
 
 #: lib/strerror-tld.c:72
 msgid "Code points prohibited by top-level domain"
-msgstr "kodne točke zabranjene vršnom domenom"
+msgstr "Kodne točke zabranjene vršnom domenom"
 
 #: lib/strerror-tld.c:76
 msgid "Missing input"
-msgstr "nedostaje ulazni podatak"
+msgstr "Nedostaju ulazni podaci"
 
 #: lib/strerror-tld.c:88
 msgid "No top-level domain found in input"
-msgstr "nije pronađena vršna domena na ulazu"
+msgstr "Nije pronađena vršna domena u ulaznim podacima"
 
 #: src/idn.c:65
 #, c-format
 msgid "Try '%s --help' for more information.\n"
-msgstr "Pokušajte „%s --help” za više informacija.\n"
+msgstr "Pokušajte '%s --help' za više informacija.\n"
 
 #: src/idn.c:69
 #, c-format
@@ -154,8 +153,8 @@ msgid ""
 "Internationalized Domain Name (IDN) convert STRINGS, or standard input.\n"
 "\n"
 msgstr ""
-"Pretvara STRINGOVE ili standardni ulaz u\n"
-"internacionalizirane nazive domena (IDN).\n"
+"  \n"
+"Pretvara stringove (standardni ulaz) u internacionalizirane nazive domena (IDN).\n"
 "\n"
 
 #: src/idn.c:76
@@ -171,24 +170,24 @@ msgid ""
 "\n"
 "Mandatory arguments to long options are mandatory for short options too.\n"
 msgstr ""
-"Sučelje naredbenog retka za biblioteku internacionaliziranih naziva domena.\n"
+"Sučelje naredbenog retka za biblioteku internacionaliziranih naziva domena (IDN)\n"
 "\n"
-"Svi stringovi se očekuju kodirani u zadanom skupu znakova vašeg\n"
-"lokala. Koristite „--debug” kako biste saznali koji je to skup. Možete\n"
-"nadjačati skup znakova postavljanjem varijable okruženja CHARSET.\n"
+"Svi stringovi moraju biti kodirani u preferiranom skupu znakova vašeg\n"
+"lokala. Koristite '--debug' kako biste saznali koji je to skup. Skup\n"
+"znakova možete promijeniti postavljanjem varijable okruženja CHARSET.\n"
 "\n"
-"Za obradu niza koji počinje s „-”, npr. „-foo”, koristite „--” za\n"
-"označavanje kraja popisa parametara, npr. „idn --quiet -a -- -foo”.\n"
+"Za obradu stringa koji počinje s '-', npr. '-foo', koristite '--' za\n"
+"označavanje kraja popisa parametara, npr.: idn --quiet -a -- -foo\n"
 "\n"
-"Obavezni argumenti dugačkih opcija također su obavezni i za kratke opcije.\n"
+"Obvezatni argumenti dugih opcija obvezatni su i za kratke opcije.\n"
 
 #: src/idn.c:88
 msgid ""
 "  -h, --help               Print help and exit\n"
 "  -V, --version            Print version and exit\n"
 msgstr ""
-"  -h, --help               ispisuje pomoć i završava s radom\n"
-"  -V, --version            ispisuje inačicu i završava s radom\n"
+"  -h, --help               ispisuje pomoć i izlazi\n"
+"  -v, --version            ispisuje verziju i izlazi\n"
 
 #: src/idn.c:92
 msgid ""
@@ -198,21 +197,19 @@ msgid ""
 "  -a, --idna-to-ascii      Convert to ACE according to IDNA (default mode)\n"
 "  -u, --idna-to-unicode    Convert from ACE according to IDNA\n"
 msgstr ""
-"  -s, --stringprep         priprema string prema profilu „nameprep”\n"
-"  -d, --punycode-decode    dekodira Punycode\n"
-"  -e, --punycode-encode    kodira Punycode\n"
-"  -a, --idna-to-ascii      pretvorba u ACE u skladu s IDNA (zadani način)\n"
-"  -u, --idna-to-unicode    pretvorba iz ACE u skladu s IDNA\n"
+"  -s, --stringprep         priprema string prema 'nameprep' profilu\n"
+"  -d, --punycode-decode    dekodira 'Punycode'\n"
+"  -e, --punycode-encode    kodira 'Punycode'\n"
+"  -a, --idna-to-ascii      pretvara u ACE prema IDNA (zadani način)\n"
+"  -u, --idna-to-unicode    pretvara iz ACE prema IDNA\n"
 
 #: src/idn.c:99
 msgid ""
 "      --allow-unassigned   Toggle IDNA AllowUnassigned flag (default off)\n"
 "      --usestd3asciirules  Toggle IDNA UseSTD3ASCIIRules flag (default off)\n"
 msgstr ""
-"      --allow-unassigned   mijenja stanje IDNA AllowUnassigned\n"
-"                           zastavice (zadano: isključeno)\n"
-"      --usestd3asciirules  mijenja stanje IDNA UseSTD3ASCIIRules\n"
-"                           zastavice (zadano: isključeno)\n"
+"      --allow-unassigned   (u/is)ključuje IDNA opciju AllowUnassigned (zadano: isklj.)\n"
+"      --usestd3asciirules  (u/is)ključuje IDNA opciju UseSTD3ASCIIRules (zadano: isklj.)\n"
 
 #: src/idn.c:103
 msgid ""
@@ -220,11 +217,11 @@ msgid ""
 "                             Only for --idna-to-ascii and --idna-to-unicode\n"
 msgstr ""
 "      --no-tld             ne provjerava string prema specifičnim TLD pravilima\n"
-"                             samo uz --idna-to-ascii i --idna-to-unicode\n"
+"                             samo uz '--idna-to-ascii' i '--idna-to-unicode'\n"
 
 #: src/idn.c:107
 msgid "  -n, --nfkc               Normalize string according to Unicode v3.2 NFKC\n"
-msgstr "  -n, --nfkc               normalizira string u skladu s Unicode v3.2 NFKC\n"
+msgstr "  -n, --nfkc               normalizira string prema Unicode NFKC-u verzija 3.2\n"
 
 #: src/idn.c:110
 msgid ""
@@ -232,106 +229,104 @@ msgid ""
 "                             Valid stringprep profiles: Nameprep\n"
 "                             iSCSI Nodeprep Resourceprep trace SASLprep\n"
 msgstr ""
-"  -p, --profile=STRING     koristi navedeni stringprep profil;\n"
-"                             valjani stringprep profili: „Nameprep”,\n"
-"                             „iSCSI”, „Nodeprep”, „Resourceprep”,\n"
-"                             „trace”, „SASLprep”\n"
+"  -p, --profile=PROFIL     koristi navedeni 'stringprep' profil;\n"
+"                             valjani  profili: 'Nameprep','iSCSI', 'Nodeprep'\n"
+"                             'Resourceprep', 'trace', 'SASLprep'\n"
 
 #: src/idn.c:115
 msgid ""
 "      --debug              Print debugging information\n"
 "      --quiet              Silent operation\n"
 msgstr ""
-"      --debug              ispisuje podatke za uklanjanje pogrešaka (debug)\n"
-"      --quiet              rad bez ispisivanja poruka\n"
+"      --debug              ispisuje informacije za uklanjanje pogrešaka\n"
+"      --quiet              ne ispisuje nikakve poruke\n"
 
-#: src/idn.c:173
-#, c-format
+#: src/idn.c:174
 msgid "only one of -s, -e, -d, -a, -u or -n can be specified"
-msgstr "smije se navesti samo jedna od opcija -s, -e, -d, -a, -u ili -n"
+msgstr "smije se navesti samo jedna od ovih opcija '-s', '-e', '-d', '-a', -u ili '-n'"
 
-#: src/idn.c:182
+#: src/idn.c:183
 #, c-format
 msgid "Charset: %s\n"
-msgstr "Skup znakova „%s”.\n"
+msgstr "Skup znakova '%s'.\n"
 
-#: src/idn.c:186
-#, c-format
+#: src/idn.c:188
 msgid "Type each input string on a line by itself, terminated by a newline character.\n"
 msgstr "Unesite svaki ulazni string u zaseban redak, završen znakom novog retka.\n"
 
-#: src/idn.c:198
+#: src/idn.c:197
 #, c-format
+msgid "strdup"
+msgstr "strdup()"
+
+#: src/idn.c:204
 msgid "input error"
 msgstr "ulazna pogreška"
 
-#: src/idn.c:209 src/idn.c:272 src/idn.c:355 src/idn.c:432 src/idn.c:513
+#: src/idn.c:215 src/idn.c:278 src/idn.c:361 src/idn.c:438 src/idn.c:519
 #, c-format
 msgid "could not convert from %s to UTF-8"
-msgstr "neuspjela pretvorba iz %s u UTF-8"
+msgstr "pretvaranje %s u UTF-8 nije uspjelo"
 
-#: src/idn.c:217 src/idn.c:242 src/idn.c:279 src/idn.c:496 src/idn.c:525
-#: src/idn.c:549
-#, c-format
+#: src/idn.c:223 src/idn.c:248 src/idn.c:285 src/idn.c:502 src/idn.c:531
+#: src/idn.c:556
 msgid "could not convert from UTF-8 to UCS-4"
-msgstr "neuspjela pretvorba iz UTF-8 u UCS-4"
+msgstr "pretvaranje iz UTF-8 u UCS-4 nije uspjelo"
 
-#: src/idn.c:234
+#: src/idn.c:240
 #, c-format
 msgid "stringprep_profile: %s"
-msgstr "stringprep_profile: %s"
+msgstr "stringprep_profile(): %s"
 
-#: src/idn.c:257 src/idn.c:300 src/idn.c:343 src/idn.c:501 src/idn.c:562
+#: src/idn.c:263 src/idn.c:306 src/idn.c:349 src/idn.c:507 src/idn.c:569
 #, c-format
 msgid "could not convert from UTF-8 to %s"
-msgstr "neuspjela pretvorba iz UTF-8 u %s"
+msgstr "pretvaranje iz UTF-8 u %s nije uspjelo"
 
-#: src/idn.c:293
+#: src/idn.c:299
 #, c-format
 msgid "punycode_encode: %s"
-msgstr "punycode_encode: %s"
-
-#: src/idn.c:315
-#, c-format
-msgid "malloc"
-msgstr "malloc"
+msgstr "punycode_encode(): %s"
 
 #: src/idn.c:321
 #, c-format
-msgid "punycode_decode: %s"
-msgstr "punycode_decode: %s"
+msgid "malloc"
+msgstr "malloc()"
 
-#: src/idn.c:338 src/idn.c:362 src/idn.c:440
+#: src/idn.c:327
 #, c-format
-msgid "could not convert from UCS-4 to UTF-8"
-msgstr "neuspjela pretvorba iz UCS-4 u UTF-8"
+msgid "punycode_decode: %s"
+msgstr "punycode_decode(): %s"
 
-#: src/idn.c:379
+#: src/idn.c:344 src/idn.c:368 src/idn.c:446
+msgid "could not convert from UCS-4 to UTF-8"
+msgstr "pretvaranje iz UCS-4 u UTF-8 nije uspjelo"
+
+#: src/idn.c:385
 #, c-format
 msgid "idna_to_ascii_4z: %s"
-msgstr "idna_to_ascii_4z: %s"
+msgstr "idna_to_ascii_4z(): %s"
 
-#: src/idn.c:393
+#: src/idn.c:399
 #, c-format
 msgid "idna_to_unicode_8z4z (TLD): %s"
 msgstr "idna_to_unicode_8z4z (TLD): %s"
 
-#: src/idn.c:407 src/idn.c:480
+#: src/idn.c:413 src/idn.c:486
 #, c-format
 msgid "tld_check_4z (position %lu): %s"
-msgstr "tld_check_4z (pozicija %lu): %s"
+msgstr "tld_check_4z (položaj %lu): %s"
 
-#: src/idn.c:410 src/idn.c:486
+#: src/idn.c:416 src/idn.c:492
 #, c-format
 msgid "tld_check_4z: %s"
-msgstr "tld_check_4z: %s"
+msgstr "tld_check_4z(): %s"
 
-#: src/idn.c:459
+#: src/idn.c:465
 #, c-format
 msgid "idna_to_unicode_8z4z: %s"
-msgstr "idna_to_unicode_8z4z: %s"
+msgstr "idna_to_unicode_8z4z(): %s"
 
-#: src/idn.c:538
-#, c-format
+#: src/idn.c:545
 msgid "could not do NFKC normalization"
-msgstr "neuspjelo izvođenje NFKC normalizacije"
+msgstr "nije bilo moguće izvršiti NFKC normalizaciju"

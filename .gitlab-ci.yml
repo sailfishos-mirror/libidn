@@ -1206,9 +1206,33 @@ Mingw64:
   - time ../configure --enable-gcc-warnings=error --host=x86_64-w64-mingw32
   - time make -k -j$(nproc) check V=1 VERBOSE=t
 
+FreeBSD:
+  rules:
+  - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+  - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+  - if: $LIBIDN_CI_RUN_FREEBSD_JOBS
+  - if: $LIBIDN_CI_MANUAL_JOBS
+    when: manual
+  tags: [ "freebsd" ]
+  needs: [B-Guix]
+  stage: test
+  before_script:
+  - uname -a
+  - sysctl hw
+  script:
+  - tar xfz out/b-guix/libidn-*.tar.gz
+  - cd $(tar tfz out/b-guix/libidn-*.tar.gz | head -n1)
+  - time ./configure --enable-gcc-warnings=error
+  - time make check V=1 VERBOSE=t
+
 OpenBSD:
+  rules:
+  - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+  - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+  - if: $LIBIDN_CI_RUN_OPENBSD_JOBS
+  - if: $LIBIDN_CI_MANUAL_JOBS
+    when: manual
   tags: [ "openbsd" ]
-  allow_failure: true
   needs: [B-Guix]
   stage: test
   before_script:
